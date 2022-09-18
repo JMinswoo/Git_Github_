@@ -1,0 +1,1915 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/lib/lightbox/css/lightbox.min.css" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/content/font.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" /><link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/content/content.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" /><!--[if lt IE 9]><script src="https://t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script><![endif]--><!--[if gte IE 9]>
+<!--><script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><!--<![endif]-->
+<script src="https://t1.daumcdn.net/tistory_admin/lib/lightbox/js/lightbox-plus-jquery.js"></script>
+<script>
+lightbox.options.fadeDuration = 200;
+lightbox.options.resizeDuration = 200;
+lightbox.options.wrapAround = false;
+lightbox.options.albumLabel = "%1 / %2";
+</script>
+<script>var tjQuery = jQuery.noConflict(true);</script><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="icon" href="https://tistory3.daumcdn.net/tistory/3731922/e2c2d5ac27d4403b93533b1b297d8c72" /><link rel="apple-touch-icon" href="//img1.daumcdn.net/thumb/C180x180/?fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F3731922%2Fattach%2F9f23baf1915d4925a60bd18deb76973e">
+<link rel="apple-touch-icon" sizes="76x76" href="//img1.daumcdn.net/thumb/C76x76/?fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F3731922%2Fattach%2F9f23baf1915d4925a60bd18deb76973e">
+<link rel="apple-touch-icon" sizes="120x120" href="//img1.daumcdn.net/thumb/C120x120/?fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F3731922%2Fattach%2F9f23baf1915d4925a60bd18deb76973e">
+<link rel="apple-touch-icon" sizes="152x152" href="//img1.daumcdn.net/thumb/C152x152/?fname=https%3A%2F%2Ftistory4.daumcdn.net%2Ftistory%2F3731922%2Fattach%2F9f23baf1915d4925a60bd18deb76973e">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="google-adsense-account" content="ca-pub-3481720379388267"><meta name="description" content="이 문서는 유튜버 코딩견 히치님의 웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다. www.youtube.com/wat..">
+<meta name="google.com" content="github.com"><meta name="description script" content="youtube coding study"
+<mesta name="googl.com" content="gitsplash"></mesta><meta name="description meoth"
+<!-- BEGIN OPENGRAPH -->
+<link rel="canonical" href="https://lapina.tistory.com/89" /><meta property="og:type" content="article"><meta property="og:url" content="https://lapina.tistory.com/89" ><meta property="og:article:author" content="타이거웅스" ><meta property="og:site_name" content="디자인하는 개발자, 개발하는 디자이너" ><meta property="og:title" content="따라하며 만드는 웹사이트 E01 : 환경설정" ><meta name="by" content="타이거웅스" ><meta property="og:description" content="이 문서는 유튜버 코딩견 히치님의 웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다. www.youtube.com/wat.." ><meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtsjZp%2Fbtq0YhIudhf%2FX4Xjz4gNvdhMWPPq7UbUF0%2Fimg.png" ><meta property="article:section" content="IT 인터넷" >
+<!-- END OPENGRAPH -->
+
+
+
+<!-- BEGIN TWITTERCARD -->
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@TISTORY"><meta name="twitter:title" content="따라하며 만드는 웹사이트 E01 : 환경설정" ><meta name="twitter:description" content="이 문서는 유튜버 코딩견 히치님의 웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다. www.youtube.com/wat.." ><meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtsjZp%2Fbtq0YhIudhf%2FX4Xjz4gNvdhMWPPq7UbUF0%2Fimg.png" >
+<!-- END TWITTERCARD -->
+
+
+
+<!-- BEGIN DAUMAPP -->
+<meta property="dg:plink" content="https://lapina.tistory.com/89" ><meta name="plink" content="https://lapina.tistory.com/89" ><meta name="title" content="따라하며 만드는 웹사이트 E01 : 환경설정" ><meta name="article:media_name" content="디자인하는 개발자, 개발하는 디자이너" ><meta property="article:mobile_url" content="https://lapina.tistory.com/m/89" ><meta property="article:pc_url" content="https://lapina.tistory.com/89" ><meta property="article:mobile_view_url" content="https://lapina.tistory.com/m/89" ><meta property="article:pc_view_url" content="https://lapina.tistory.com/89" ><meta property="article:talk_channel_view_url" content="https://lapina.tistory.com/m/89" ><meta property="article:pc_service_home" content="https://www.tistory.com" ><meta property="article:mobile_service_home" content="https://www.tistory.com/m" ><meta property="article:txid" content="3731922_89" /><meta property="article:published_time" content="2021-03-25T21:44:37+09:00" ><meta property="og:regDate" content="20210325214437" ><meta property="article:modified_time" content="2021-03-29T10:40:16+09:00" >
+<!-- END DAUMAPP -->
+
+
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https:\/\/lapina.tistory.com\/89"},"url":"https:\/\/lapina.tistory.com\/89","headline":"\ub530\ub77c\ud558\uba70 \ub9cc\ub4dc\ub294 \uc6f9\uc0ac\uc774\ud2b8 E01 : \ud658\uacbd\uc124\uc815","description":"\uc774 \ubb38\uc11c\ub294 \uc720\ud29c\ubc84 \ucf54\ub529\uacac \ud788\uce58\ub2d8\uc758 \uc6f9\uc0ac\uc774\ud2b8 \uac15\uc758\ub97c \ud558\ub098\ud558\ub098 \ub530\ub77c\ud558\uba70 \ub0a8\uae30\ub294 \ub178\ud2b8\uc774\ub2e4. \uc6f9\uc0ac\uc774\ud2b8\ub97c \ube68\ub9ac \ubc30\uc6cc\uc57c \ud558\ub294 \ub0b4\uac00 \uc120\ud0dd\ud55c \uac15\uc758\uc774\ub2e4. \uc77c\ub2e8 \ub05d\uae4c\uc9c0 \ub4e4\uc5b4\ubcf4\uace0 \ud3c9\uc744 \ub0a8\uaca8\ubcf4\ub3c4\ub85d \ud558\uaca0\ub2e4. www.youtube.com\/wat..","author":{"@type":"Person","name":"\ud0c0\uc774\uac70\uc6c5\uc2a4"},"image":{"@type":"ImageObject","url":"https:\/\/img1.daumcdn.net\/thumb\/R800x0\/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtsjZp%2Fbtq0YhIudhf%2FX4Xjz4gNvdhMWPPq7UbUF0%2Fimg.png","width":"800px","height":"800px"},"datePublished":"20210325T21:44:37+09:00","dateModified":"20210329T10:40:16+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https:\/\/t1.daumcdn.net\/tistory_admin\/static\/images\/openGraph\/opengraph.png","width":"800px","height":"800px"}}}</script><meta name="robots" content="max-image-preview:large">
+<!-- END STRUCTURED_DATA -->
+
+        <script data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3481720379388267" async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript">
+if(typeof(history.pushState)=='function')
+{
+	var CatagoryURL = location.href;
+	CatagoryURL = CatagoryURL.replace(/\?category=[0-9]+)/ig,'');
+	history.pushState(null,null,CatagoryURL);
+}	
+</script>
+	
+	<meta name="google-site-verification" content="PkPuqOcFfqoIDNJWllUiJBlUcQhfPDgQxbZJsbkLFkM" />
+<meta charset="UTF-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>따라하며 만드는 웹사이트 E01 : 환경설정</title>
+<link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/3731922/skin/style.css?_T_=1658478078">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3481720379388267"
+     crossorigin="anonymous"></script>
+	
+<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+<style type="text/css">
+
+.entry-content a, .post-header h1 em, .comments h2 .count {color:#FFBE9B}
+.comment-form .submit button:hover, .comment-form .submit button:focus {background-color:#FFBE9B}
+
+
+
+</style>
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/paraiso-dark.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>	
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178111516-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config','UA-178111516-1');
+</script>
+<style type="text/css">
+		#daumSearchBox {
+			height: 21px;
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+			margin: 5px auto ;
+			padding: 0;
+		}
+		#daumSearchBox input {
+			background: none;
+			margin : 0;
+			padding : 0;
+			border : 0;
+		}
+		#daumSearchBox #daumLogo {
+			width: 34px;
+			height: 21px;
+			float: left;
+			margin-right: 5px;
+			background-image : url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+		}
+		#daumSearchBox #show_q {
+			background-color: transparent;
+			border: none;
+			font: 12px Gulim, Sans-serif;
+			color: #555;
+			margin-top: 4px;
+			margin-right: 15px;
+			float: left;
+		}
+
+		#daumSearchBox #show_btn {
+			background-image : url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+			width: 37px;
+			height: 21px;
+			float: left;
+			margin:0;
+			cursor:pointer;
+			text-indent:-1000em;
+		}
+	</style>
+<link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/plugins/TistoryProfileLayer/style.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" />
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/plugins/TistoryProfileLayer/profile.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"></script>
+	<style type="text/css">
+		.another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
+		.another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
+		.another_category h4 a { font-weight: bold !important; }
+		.another_category table { table-layout: fixed; border-collapse: collapse; width: 100% !important; margin-top: 10px !important; }
+		* html .another_category table { width: auto !important; }
+		*:first-child+html .another_category table { width: auto !important; }
+		.another_category th, .another_category td { padding: 0 0 4px !important; }
+		.another_category th { text-align: left; font-size: 12px !important; font-weight: normal;  word-break: break-all; overflow: hidden; line-height: 1.5; }
+		.another_category td { text-align: right; width: 80px; font-size: 11px; }
+		.another_category th a { font-weight: normal; text-decoration: none; border: none !important; }
+		.another_category th a.current{ font-weight: bold; text-decoration: none !important; border-bottom: 1px solid !important; }
+		.another_category th span { font-weight: normal; text-decoration: none; font: 10px Tahoma, Sans-serif; border: none !important; }
+
+		.another_category_color_gray, .another_category_color_gray h4 { border-color: #E5E5E5 !important; }
+		.another_category_color_gray * { color: #909090 !important; }
+		.another_category_color_gray th a.current{border-color:#909090 !important;}
+		.another_category_color_gray h4, .another_category_color_gray h4 a { color: #737373 !important; }
+
+
+		.another_category_color_red, .another_category_color_red h4 { border-color: #F6D4D3 !important;  }
+		.another_category_color_red * { color: #E86869 !important; }
+		.another_category_color_red th a.current{border-color:#E86869 !important;}
+		.another_category_color_red h4, .another_category_color_red h4 a { color: #ED0908 !important; }
+
+
+		.another_category_color_green, .another_category_color_green h4 { border-color: #CCE7C8 !important; }
+		.another_category_color_green * { color: #64C05B !important; }
+		.another_category_color_green th a.current{border-color:#64C05B !important;}
+		.another_category_color_green h4, .another_category_color_green h4 a { color: #3EA731 !important; }
+
+
+		.another_category_color_blue, .another_category_color_blue h4 { border-color: #C8DAF2 !important; }
+		.another_category_color_blue * { color: #477FD6 !important; }
+		.another_category_color_blue th a.current{border-color:#477FD6 !important;}
+		.another_category_color_blue h4, .another_category_color_blue h4 a { color: #1960CA !important; }
+
+
+		.another_category_color_violet, .another_category_color_violet h4 { border-color: #E1CEEC !important;  }
+		.another_category_color_violet * { color:#9D64C5 !important; }
+		.another_category_color_violet th a.current{border-color:#9D64C5 !important;}
+		.another_category_color_violet h4, .another_category_color_violet h4 a { color: #7E2CB5 !important; }
+	</style>
+<script type="text/javascript">
+        
+        window.TistoryBlog = {
+            basePath: "",
+            url: "https://lapina.tistory.com",
+            tistoryUrl: "https://lapina.tistory.com",
+			manageUrl: 'https://lapina.tistory.com/manage',
+            token: 'uN+76hgeIf/MGC0pC2/5xg=='
+        };
+        var servicePath = "";
+        var blogURL = "";
+    </script>
+
+	<script> (function() { window.orgjQuery = window.jQuery; window.jQuery = tjQuery })()</script>
+    <script type="text/javascript" defer src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e></script>
+    <script> (function() { window.jQuery = window.orgjQuery; delete window.orgjQuery })()</script>
+        <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/_/base.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"></script>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/dialog.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"/>
+            <link rel="stylesheet" type="text/css" href="//t1.daumcdn.net/tistory_admin/www/style/top/font.css">
+    <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/postBtn.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"/>
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/component/tistory.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" />
+    <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/component/tistory.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"></script>
+        <script type="text/javascript" src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/style/revenue.css?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"/></head>
+	
+<body id="tt-body-page" class="layout-aside-right list-type-vertical  paging-view-more">
+<script type="text/javascript">
+	(function() {
+		if (!window.T) {
+			window.T = {}
+		}
+		window.T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/90","NEXT_PAGE":"\/87","BLOG":{"isDormancy":false,"title":"\ub514\uc790\uc778\ud558\ub294 \uac1c\ubc1c\uc790, \uac1c\ubc1c\ud558\ub294 \ub514\uc790\uc774\ub108"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/auth\/login\/?redirectUrl=http%3A%2F%2Flapina.tistory.com%2F89","DEFAULT_URL":"https:\/\/lapina.tistory.com","USER":{"name":null,"homepage":null},"ROLE_GROUP":"visitor","SUBSCRIPTION":{"status":"none","isConnected":false,"isProcessing":false,"isPending":false,"isWait":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"TOP_URL":"https:\/\/www.tistory.com","JOIN_URL":"https:\/\/www.tistory.com\/member\/join"};
+		window.appInfo = {"domain":"tistory.com","topUrl":"https:\/\/www.tistory.com","loginUrl":"https:\/\/www.tistory.com\/auth\/login","logoutUrl":"https:\/\/www.tistory.com\/auth\/logout"};
+
+        window.initData = {};
+        
+	})();
+</script>
+
+<script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/blog/common.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"></script>
+<div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<div id="acc-nav">
+	<a href="#content">본문 바로가기</a>
+</div>
+<div id="wrap">
+	<header id="header">
+		<div class="inner">
+			<h1>
+				<a href="/">
+					
+					
+				Design <dir>main_file <Script>i=0;i=<div><big>breadk_edk</big></div></Script></dir>
+					
+				</a>
+			</h1>
+			<div class="util">
+				<div class="search">
+					
+						<input type="text" name="search" value="" placeholder="검색내용을 입력하세요." onkeypress="if (event.keyCode == 13) { try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('search')[0].value);document.getElementsByName('search')[0].value='';return false;}catch(e){} }">
+						<button type="submit" onclick="try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('search')[0].value);document.getElementsByName('search')[0].value='';return false;}catch(e){}">검색</button>
+					
+				</div>
+				<div class="profile">
+					<button type="button"><img src="https://tistory4.daumcdn.net/tistory/3731922/attach/9f23baf1915d4925a60bd18deb76973e" alt="블로그 이미지" /></button>
+					<nav>
+						<ul>
+							<li><a href="https://lapina.tistory.com/manage">관리</a></li>
+							<li><a href="https://lapina.tistory.com/manage/entry/post ">글쓰기</a></li>
+							<li class="login"><a href="#">로그인</a></li>
+							<li class="logout"><a href="#">로그아웃</a></li>
+						</ul>
+					</nav>
+				</div>
+				<button type="button" class="menu"><span>메뉴</span></button>
+			</div>
+						
+
+			<nav id="gnb">
+				<ul>		<li class="t_menu_home first">
+			<a href="/">홈</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0">deverlrop_outer</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%20%EC%9D%B4%EC%95%BC%EA%B8%B0">디자인</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="/category/%EB%B8%94%EB%A1%9C%EA%B7%B8%20%EA%BF%80%ED%8C%81">꿀팁</a>
+		</li>
+				<li class="t_menu_category">
+			<a href="/category/%EB%AF%B8%EC%8B%9D%EA%B0%80%20%ED%83%80%EC%9D%B4%EA%B1%B0%EC%9D%98%20%EB%A7%9B%EC%A7%91%20%ED%83%90%ED%97%98">맛집</a>
+		</li>
+				<li class="t_menu_tag last">
+			<a href="/tag">태그</a>
+		</li>
+		</ul>
+
+			</nav>
+		</div>
+	</header>
+	<section id="container">
+		
+		<div class="content-wrap">
+			<article id="content">
+						<script async src="https://cse.google.com/cse.js?cx=b913bd286bc62be33"></script>
+<div class="gcse-search"></div>
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				
+
+				<div class="inner">
+					
+
+						
+
+						
+							<div class="post-cover" style="background-image:url(https://blog.kakaocdn.net/dn/tsjZp/btq0YhIudhf/X4Xjz4gNvdhMWPPq7UbUF0/img.png)">
+								<div class="inner">
+									<span class="category">개발 이야기/파이썬 초보의 웹사이트 도전 일지</span>
+									<h1>따라하며 만드는 웹사이트 E01 : 환경설정</h1>
+									<span class="meta">
+										<span class="author">by 타이거웅스</span>
+										<span class="date">2021. 3. 25.</span>
+										
+									</span>
+								</div>
+							</div>
+
+							<div class="entry-content">
+								<div class="contents_style">            <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive" >
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle" style="display:block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3481720379388267" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div><p>이 문서는 유튜버 코딩견 히치님의 웹사이트 강의를 하나하나 따라하며 남기는 노트이다.</p>
+<p>웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다.</p>
+<p>&nbsp;</p>
+<p><a href="https://www.youtube.com/watch?v=e-ADP2rZhks" target="_blank" rel="noopener">www.youtube.com/watch?v=e-ADP2rZhks</a></p>
+<figure data-ke-type="video" data-ke-style="alignCenter" data-video-host="youtube" data-video-url="https://www.youtube.com/watch?v=e-ADP2rZhks" data-video-thumbnail="https://scrap.kakaocdn.net/dn/bKdjb8/hyJFoPM8Ns/b3XmHSqANedQWjjidz5lsK/img.jpg?width=1280&amp;height=720&amp;face=0_0_1280_720" data-video-width="860" data-video-height="484" data-ke-mobilestyle="widthContent"><iframe src="https://www.youtube.com/embed/e-ADP2rZhks" width="860" height="484" frameborder="0" allowfullscreen="true"></iframe>
+<figcaption></figcaption>
+</figure>
+<p>&nbsp;</p>
+<p>개발 환경 : Macbook Pro</p>
+<p><figure class='imageblock alignLeft' data-origin-width="0" data-origin-height="0" width="359" height="NaN" data-ke-mobilestyle="widthContent"><span data-url='https://blog.kakaocdn.net/dn/tsjZp/btq0YhIudhf/X4Xjz4gNvdhMWPPq7UbUF0/img.png' data-lightbox='lightbox' data-alt=''><img src='https://blog.kakaocdn.net/dn/tsjZp/btq0YhIudhf/X4Xjz4gNvdhMWPPq7UbUF0/img.png' srcset='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtsjZp%2Fbtq0YhIudhf%2FX4Xjz4gNvdhMWPPq7UbUF0%2Fimg.png' data-origin-width="0" data-origin-height="0" width="359" height="NaN" data-ke-mobilestyle="widthContent"></span></figure></p>
+<p>&nbsp;</p>
+<p>강의 시작</p>
+<h3 data-ke-size="size23"><b>환경설정</b></h3>
+<p>1. Github desktop 설치</p>
+<p>2. Atom 설치</p>
+<p><span style="letter-spacing: 0px;">3. git 설치</span></p>
+<p><span style="letter-spacing: 0px;">4. Node.js 설치 : </span><span style="letter-spacing: 0px;">LTS버전으로 </span></p>
+<p>위의 네개를 구글링해서 공홈들어가서 설치 하고 (셋팅 변경없이 동의동의동의 기본으로 설치한다.)</p>
+<p>&nbsp;</p>
+<h3 data-ke-size="size23"><b>리액트 설치와 실행</b></h3>
+<p>터미널을 실행한다.</p>
+<p>맥북의 터미널에서는 ls : 파일보기 명령, cd 폴더 이동 명령</p>
+<p>react app을 설치한다.</p>
+<pre id="code_1616674018478" class="c++ arduino" data-ke-language="c++" data-ke-type="codeblock"><code>npm install -g create-react-app
+
+create-react-app my-app #my-app은 내 앱 이름
+#혹은 npx create-react-app my-app 
+cd my-app/
+npm start
+</code></pre>
+<p>&nbsp;</p>
+<p>요렇게 되면 실행한 폴더에 my-app 폴더와 기본 파일들이 생성 된거고,</p>
+<p>개발 서버가 실행 된거다.</p>
+<p>브라우져가 열리고 기본 페이지가 작동한다.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h3 data-ke-size="size23"><b>React 설치하고 써보기&nbsp;</b></h3>
+<p>1. atom 을 열고</p>
+<p>생성된 폴더를 연다.</p>
+<p>&nbsp;</p>
+<p>2. App.js에서 코드를 조금 수정해 본다.</p>
+<p><a href="https://react.semantic-ui.com/" target="_blank" rel="noopener">react.semantic-ui.com/</a></p>
+<figure id="og_1616675281081" contenteditable="false" data-ke-type="opengraph" data-og-type="website" data-og-title="Introduction - Semantic UI React" data-og-description="Semantic UI React is the official React integration for Semantic UI . Installation instructions are provided in the Usage section. jQuery is a DOM manipulation library. It reads from and writes to the DOM. React uses a virtual DOM (a JavaScript representat" data-og-host="react.semantic-ui.com" data-og-source-url="https://react.semantic-ui.com/" data-og-url="https://react.semantic-ui.com/" data-og-image="https://scrap.kakaocdn.net/dn/cJ4I3p/hyJFiIRBLD/S28WSzpVRuSdWh47sK9txK/img.png?width=256&amp;height=256&amp;face=0_0_256_256"><a href="https://react.semantic-ui.com/" target="_blank" rel="noopener" data-source-url="https://react.semantic-ui.com/">
+<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/cJ4I3p/hyJFiIRBLD/S28WSzpVRuSdWh47sK9txK/img.png?width=256&amp;height=256&amp;face=0_0_256_256');">&nbsp;</div>
+<div class="og-text">
+<p class="og-title">Introduction - Semantic UI React</p>
+<p class="og-desc">Semantic UI React is the official React integration for Semantic UI . Installation instructions are provided in the Usage section. jQuery is a DOM manipulation library. It reads from and writes to the DOM. React uses a virtual DOM (a JavaScript representat</p>
+<p class="og-host">react.semantic-ui.com</p>
+</div>
+</a></figure>
+<p>&nbsp;</p>
+<p><b>Semantic UI React는 아래와 같은 곳</b></p>
+<hr contenteditable="false" data-ke-type="horizontalRule" data-ke-style="style3" />
+<h2 id="introduction">Introduction</h2>
+<p>Semantic UI React is the official React integration for<span>&nbsp;</span><a href="https://semantic-ui.com/">Semantic UI</a><span>&nbsp;</span>.</p>
+<p>jQuery Free</p>
+<p>Declarative API</p>
+<p>Augmentation</p>
+<p>Shorthand Props</p>
+<p>Sub Components</p>
+<p>Auto Controlled State</p>
+<p>Installation instructions are provided in the<span>&nbsp;</span><a href="https://react.semantic-ui.com/usage">Usage</a><span>&nbsp;</span>section.</p>
+<hr contenteditable="false" data-ke-type="horizontalRule" data-ke-style="style3" />
+<p>index.js에서 불러와주는 코드만 넣으면 됨.&nbsp;</p>
+<p><figure class='imageblock alignCenter' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"><span data-url='https://blog.kakaocdn.net/dn/ziweK/btq0Y4Wx99q/FqKFYNsQ6j5P2FKgH2of4K/img.png' data-lightbox='lightbox' data-alt=''><img src='https://blog.kakaocdn.net/dn/ziweK/btq0Y4Wx99q/FqKFYNsQ6j5P2FKgH2of4K/img.png' srcset='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FziweK%2Fbtq0Y4Wx99q%2FFqKFYNsQ6j5P2FKgH2of4K%2Fimg.png' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"></span></figure></p>
+<p>&nbsp;</p>
+<p>그다음에 요렇게 button, progress percent 같은걸 스을쩍 퍼와서 담으면&nbsp;</p>
+<p>아래처럼 보이게 됨. 편하다.&nbsp;</p>
+<pre id="code_1616675205345" class="javascript" style="display: block; overflow: auto; padding: 15px; color: #383a42; background: #f6f7f8; font-size: 14px; border-radius: 3px; font-family: Menlo, Consolas, Monaco, monospace; border: 1px solid #dddddd; margin: 20px auto 0px; cursor: default; z-index: 1; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" data-ke-language="javascript" data-ke-type="codeblock"><code>import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import {Button, Progress} from 'semantic-ui-react'
+
+function App() {
+  return (
+
+    &lt;div&gt;
+&lt;p&gt; 안녕하세요&lt;/p&gt;
+&lt;Button primary&gt; 알아보기 &lt;/Button&gt;
+&lt;Progress percent = {55} indicating /&gt;
+
+    &lt;/div&gt;
+
+  );
+}
+
+export default App;</code></pre>
+<p>수정 시 실시간으로 브라우져에 반영되는걸 볼 수 있다.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><figure class='imageblock alignCenter' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"><span data-url='https://blog.kakaocdn.net/dn/AiThe/btq0ZKQ04NK/90zR0rnBZnArLvMr3PLNW0/img.png' data-lightbox='lightbox' data-alt=''><img src='https://blog.kakaocdn.net/dn/AiThe/btq0ZKQ04NK/90zR0rnBZnArLvMr3PLNW0/img.png' srcset='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAiThe%2Fbtq0ZKQ04NK%2F90zR0rnBZnArLvMr3PLNW0%2Fimg.png' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"></span></figure></p>
+<p>&nbsp;</p>
+<pre id="code_1616675894898" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code>import React from 'react';
+import logo from './logo.svg';
+import './App.css';
+import {Button, Progress} from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
+import { Segment, Input } from 'semantic-ui-react'
+
+function App() {
+  return (
+
+    &lt;div&gt;
+&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;Icon loading name='spinner' /&gt;
+&lt;Icon loading name='certificate' /&gt;&lt;Icon loading name='asterisk' /&gt;
+
+&lt;Segment inverted&gt;
+  &lt;Input inverted placeholder='Search...' /&gt;
+&lt;/Segment&gt;
+
+&lt;Progress percent = {55} indicating /&gt;
+&lt;Button primary&gt; 분석 해보기 &lt;/Button&gt;
+
+
+
+    &lt;/div&gt;
+
+  );
+}
+
+export default App;
+</code></pre>
+<p>&nbsp;</p>
+<p>그냥 이것저것 긁어와서 붙여보면 UI가 매우 쉽게 구현 됨을 알 수 있음.</p>
+<p>&nbsp;</p>
+<p>좋았어!</p>
+<p>&nbsp;</p>
+<h3 data-ke-size="size23"><b>깃허브 써보기</b></h3>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">1. 내 폴더와 리포지토리 연결</p>
+<p data-ke-size="size16">2. 수정되 사항이 자동으로 반영됨</p>
+<p data-ke-size="size16">3. 수정 사항을 summary를 적은 후에, commit to master</p>
+<p data-ke-size="size16">4. push origin&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p><figure class='imageblock alignCenter' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"><span data-url='https://blog.kakaocdn.net/dn/bJVlgH/btq0YhWa17Z/SH0uttWZQ132KJuQgKt7uK/img.png' data-lightbox='lightbox' data-alt=''><img src='https://blog.kakaocdn.net/dn/bJVlgH/btq0YhWa17Z/SH0uttWZQ132KJuQgKt7uK/img.png' srcset='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbJVlgH%2Fbtq0YhWa17Z%2FSH0uttWZQ132KJuQgKt7uK%2Fimg.png' data-origin-width="0" data-origin-height="0" data-ke-mobilestyle="widthContent"></span></figure></p>
+<p>&nbsp;</p>
+<p>여기까지 1강이었습니다.</p>
+<p>감사합니다.</p>
+<p>&nbsp;</p>
+<p>다음강의 보기</p>
+<p><a href="https://lapina.tistory.com/90" target="_blank" rel="noopener">2021.03.25 - [언어/파이썬 초보의 웹사이트 도전 일지] - 따라하며 만드는 웹사이트 E02-1 : HTML, CSS, JS, React 구조</a></p>
+<figure id="og_1616981762707" contenteditable="false" data-ke-type="opengraph" data-og-type="article" data-og-title="따라하며 만드는 웹사이트 E02-1 : HTML, CSS, JS, React 구조" data-og-description="이 문서는 유튜버 코딩견 히치님의&nbsp;웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다. " data-og-host="lapina.tistory.com" data-og-source-url="https://lapina.tistory.com/90" data-og-url="https://lapina.tistory.com/90" data-og-image="https://scrap.kakaocdn.net/dn/cAi6Bp/hyJH9ddeVc/qaqaWNs6Aaa9fkoZ3pIbZK/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080,https://scrap.kakaocdn.net/dn/jaCN5/hyJGFSmoIZ/tEPXM7DD68JdgY6y7T6Hb1/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080,https://scrap.kakaocdn.net/dn/mxttT/hyJGCg2lPx/GTjoztbbrFBVaz8zX3ZkUK/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080"><a href="https://lapina.tistory.com/90" target="_blank" rel="noopener" data-source-url="https://lapina.tistory.com/90">
+<div class="og-image" style="background-image: url('https://scrap.kakaocdn.net/dn/cAi6Bp/hyJH9ddeVc/qaqaWNs6Aaa9fkoZ3pIbZK/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080,https://scrap.kakaocdn.net/dn/jaCN5/hyJGFSmoIZ/tEPXM7DD68JdgY6y7T6Hb1/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080,https://scrap.kakaocdn.net/dn/mxttT/hyJGCg2lPx/GTjoztbbrFBVaz8zX3ZkUK/img.png?width=488&amp;height=1080&amp;face=0_0_488_1080');">&nbsp;</div>
+<div class="og-text">
+<p class="og-title">따라하며 만드는 웹사이트 E02-1 : HTML, CSS, JS, React 구조</p>
+<p class="og-desc">이 문서는 유튜버 코딩견 히치님의&nbsp;웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다.</p>
+<p class="og-host">lapina.tistory.com</p>
+</div>
+</a></figure>
+<p>&nbsp;</p>            <div class="revenue_unit_wrap ">
+                <div class="revenue_unit_item adfit">
+                    <div class="revenue_unit_info">728x90</div>
+                    <ins class="kakao_ad_area" style="display:none;" 
+                         data-ad-unit = "DAN-fi3Ur4mQV1z1oRDL" 
+                         data-ad-width = "728" 
+                         data-ad-height = "90px">
+                    </ins> 
+                    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                </div>
+            </div>            <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive" >
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle" style="display:block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3481720379388267" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div>            <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item tenping ">
+                    <div class="revenue_unit_info">LIST</div>
+                    <tenping class="adsbytenping" style="width:100%;max-width:768px;margin:0 auto;display:block;" tenping-ad-display-type="67%2be3LHzHbblsB9oLrOpWQ%3d%3d" mediaid="3731922"></tenping>
+                    <script async src="//tads.tenping.kr/scripts/adsbytenping.min.js"></script>
+               </div>
+            </div><div class="container_postbtn #post_button_group">
+    <div class="postbtn_like">
+        
+<script>
+    window.ReactionButtonType = 'reaction';
+    window.ReactionApiUrl = '//lapina.tistory.com/reaction';
+    window.ReactionReqBody = {
+        entryId: 89    }
+</script>
+<div class="wrap_btn" id=reaction-89></div>
+<script src=https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/reaction/reaction-button-container.min.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e></script>
+        <div class="wrap_btn wrap_btn_share">
+    <button aria-expanded="false" class="btn_post sns_btn btn_share" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtsjZp%2Fbtq0YhIudhf%2FX4Xjz4gNvdhMWPPq7UbUF0%2Fimg.png" data-title="따라하며 만드는 웹사이트 E01 : 환경설정" data-description="이 문서는 유튜버 코딩견 히치님의 웹사이트 강의를 하나하나 따라하며 남기는 노트이다. 웹사이트를 빨리 배워야 하는 내가 선택한 강의이다. 일단 끝까지 들어보고 평을 남겨보도록 하겠다. www.youtube.com/wat.." data-profile-image="https://tistory4.daumcdn.net/tistory/3731922/attach/9f23baf1915d4925a60bd18deb76973e" data-profile-name="타이거웅스" data-pc-url="https://lapina.tistory.com/89" data-relative-pc-url="/89" data-blog-title="디자인하는 개발자, 개발하는 디자이너">
+        <span class="ico_postbtn ico_share">공유하기</span>
+    </button>
+    <div id="tistorySnsLayer" class="layer_post"></div>
+</div>
+                <div class="wrap_btn wrap_btn_etc" data-entry-id="89" data-entry-visibility="public" data-category-visibility="public">
+    <button aria-expanded="false" class="btn_post btn_etc2"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+    <div id="tistoryEtcLayer" class="layer_post"></div>
+</div>
+    </div>
+    <button type="button" class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3731922" data-url="https://lapina.tistory.com/89" data-device="web_pc">
+    <em class="txt_state">구독하기</em>
+    <strong class="txt_tool_id">디자인하는 개발자, 개발하는 디자이너</strong>
+    <span class="img_common_tistory ico_check_type1"></span>
+</button>
+    <div class="postbtn_ccl" data-ccl-type="3">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span>        </span>
+    </a>
+</div>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="http://creativecommons.org/licenses/by-fr/2.0/kr/" />
+    </Work>
+    <License rdf:about="http://creativecommons.org/licenses/by-fr/">
+        <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+                <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+                    </License>
+</rdf:RDF>
+-->
+</div><div class="another_category another_category_color_gray">
+<h4>'<a href="/category/개발%20이야기">개발 이야기</a>&nbsp;>&nbsp;<a href="/category/개발%20이야기/파이썬%20초보의%20웹사이트%20도전%20일지">파이썬 초보의 웹사이트 도전 일지</a>' 카테고리의 다른 글</h4>
+<table>
+<tr>
+<th>
+<a href="/93?category=840532" >따라하며 만드는 웹사이트 E03-1 : margin, 구분선, 좋아요 버튼</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.03.26</td>
+</tr>
+<tr>
+<th>
+<a href="/92?category=840532" >따라하며 만드는 웹사이트 E02-3 : 이미지, 댓글창 껍데기</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.03.25</td>
+</tr>
+<tr>
+<th>
+<a href="/91?category=840532" >따라하며 만드는 웹사이트 E02-2 : Class 컴포넌트, 이벤트</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.03.25</td>
+</tr>
+<tr>
+<th>
+<a href="/90?category=840532" >따라하며 만드는 웹사이트 E02-1 : HTML, CSS, JS, React 구조</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.03.25</td>
+</tr>
+<tr>
+<th>
+<a href="/89?category=840532"  class ="current" >따라하며 만드는 웹사이트 E01 : 환경설정</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.03.25</td>
+</tr>
+<tr>
+<th>
+<a href="/67?category=840532" >파이썬으로 복잡한 웹페이지도 간단하게 만들 수 있다고 하던데..(feat. django)</a>&nbsp;&nbsp;<span>(0)</span>
+</th>
+<td>
+2021.02.03</td>
+</tr>
+</table></div></div>
+							</div>
+
+							
+								<div class="tags">
+									<h2>태그</h2>
+									<a href="/tag/react%20%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%20%EB%A7%8C%EB%93%A4%EA%B8%B0"  rel="tag">react 웹페이지 만들기</a>,
+<a href="/tag/react%20%EC%B4%88%EB%B3%B4"  rel="tag">react 초보</a>,
+<a href="/tag/react%20%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC"  rel="tag">react 튜토리얼</a>,
+<a href="/tag/react%EB%A1%9C%20%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80"  rel="tag">react로 웹페이지</a>,
+<a href="/tag/%EB%A6%AC%EC%95%A1%ED%8A%B8%20%EC%8B%A4%ED%96%89"  rel="tag">리액트 실행</a>,
+<a href="/tag/%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%A0%9C%EC%9E%91"  rel="tag">웹사이트 제작</a>,
+<a href="/tag/%EC%9B%B9%EC%95%B1%20%EB%A7%88%EC%8A%A4%ED%84%B0"  rel="tag">웹앱 마스터</a>,
+<a href="/tag/%EC%9B%B9%EC%95%B1%20%EB%A7%8C%EB%93%A4%EA%B8%B0"  rel="tag">웹앱 만들기</a>,
+<a href="/tag/%EC%9B%B9%EC%95%B1%20%EC%96%B4%EB%96%BB%EA%B2%8C%20%EB%A7%8C%EB%93%9C%EB%82%98"  rel="tag">웹앱 어떻게 만드나</a>,
+<a href="/tag/%EC%9B%B9%ED%8E%98%EC%9D%B4%EC%A7%80%20%EB%A7%8C%EB%93%A4%EA%B8%B0"  rel="tag">웹페이지 만들기</a>
+								</div>
+							
+
+							
+								<div class="related-articles">
+									<h2>관련글</h2>
+									<ul>
+										
+											<li>
+												<a href="/92?category=840532">
+													<figure>
+														
+															<img src="//i1.daumcdn.net/thumb/C176x120/?fname=https://blog.kakaocdn.net/dn/IBL2Z/btq0YhBTWUl/RJ8IyxVJRI7ZkZtCKzmde1/img.png" alt="">
+														
+													</figure>
+													<span class="title">따라하며 만드는 웹사이트 E02-3 : 이미지, 댓글창 껍데기</span>
+												</a>
+											</li>
+										
+											<li>
+												<a href="/91?category=840532">
+													<figure>
+														
+															<img src="//i1.daumcdn.net/thumb/C176x120/?fname=https://blog.kakaocdn.net/dn/8ESuI/btq04KI6Zca/FHhZQIKeTK3ajZNVGZjby0/img.png" alt="">
+														
+													</figure>
+													<span class="title">따라하며 만드는 웹사이트 E02-2 : Class 컴포넌트, 이벤트</span>
+												</a>
+											</li>
+										
+											<li>
+												<a href="/90?category=840532">
+													<figure>
+														
+															<img src="//i1.daumcdn.net/thumb/C176x120/?fname=https://blog.kakaocdn.net/dn/bNeBC0/btq0Yh2V0be/UJ5S20PEVkSFkqX20DOLK1/img.png" alt="">
+														
+													</figure>
+													<span class="title">따라하며 만드는 웹사이트 E02-1 : HTML, CSS, JS, React 구조</span>
+												</a>
+											</li>
+										
+											<li>
+												<a href="/67?category=840532">
+													<figure>
+														
+															<img src="//i1.daumcdn.net/thumb/C176x120/?fname=https://blog.kakaocdn.net/dn/epqdS0/btqVFBq0OUm/sgJPlc4YMxDSVoWFYOy1KK/img.png" alt="">
+														
+													</figure>
+													<span class="title">파이썬으로 복잡한 웹페이지도 간단하게 만들 수 있다고 하던데..(feat. django)</span>
+												</a>
+											</li>
+										
+									</ul>
+								</div>
+							
+
+							<div class="comments">
+									<h2>WriteHere<span class="count"><span id="commentCount89_0">0</span></span></h2>
+									<div id="entry89Comment">
+										
+
+										<form method="post" action="/comment/add/89" onsubmit="return false" style="margin: 0">
+											<div class="comment-form">
+												
+													<div class="field">
+														
+															<input type="text" name="name" placeholder="이름" value="">
+															<input type="password" name="password" maxlength="8" placeholder="비밀번호" value="">
+														
+														<div class="secret">
+															<input type="checkbox" name="secret" id="secret">
+															<label for="secret" tabindex="0">secreteWrite</label>
+														</div>
+													</div>
+												
+												<textarea name="comment" cols="" rows="4" placeholder="I want to Know your secrete thinking."></textarea>
+												<div class="submit">
+													<button type="submit" class="btn" onclick="addComment(this, 89); return false;">input here</button>
+												</div>
+											</div>
+										</form>
+								</div><script type="text/javascript">loadedComments[89]=true;findFragmentAndHighlight(89)</script>
+							</div>
+						
+
+					
+
+				</div>
+
+				
+
+				
+
+				
+					<div class="pagination">
+						<a  href='/90' class="prev ">이전</a>
+						
+							<a  href='/196'><span >1</span></a>
+						
+							<a ><span >&middot;&middot;&middot;</span></a>
+						
+							<a  href='/93'><span >98</span></a>
+						
+							<a  href='/92'><span >99</span></a>
+						
+							<a  href='/91'><span >100</span></a>
+						
+							<a  href='/90'><span >101</span></a>
+						
+							<a ><span class="selected">102</span></a>
+						
+							<a  href='/87'><span >103</span></a>
+						
+							<a  href='/86'><span >104</span></a>
+						
+							<a  href='/85'><span >105</span></a>
+						
+							<a  href='/84'><span >106</span></a>
+						
+							<a ><span >&middot;&middot;&middot;</span></a>
+						
+							<a  href='/2'><span >176</span></a>
+						
+						<a  href='/87' class="next ">다음</a>
+					</div>
+				
+
+				
+
+			</article>
+			<aside id="aside" class="sidebar">
+
+					<div class="sidebar-1">
+						                        <div class="revenue_unit_wrap ">
+                <div class="revenue_unit_item adfit">
+                    <div class="revenue_unit_info">250x250</div>
+                    <ins class="kakao_ad_area" style="display:none;" 
+                         data-ad-unit = "DAN-uVONpXg9FUetQnOC" 
+                         data-ad-width = "250" 
+                         data-ad-height = "250px">
+                    </ins> 
+                    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                </div>
+            </div>                        <div class="revenue_unit_wrap ">
+               <div class="revenue_unit_item adsense  responsive" >
+                    <div class="revenue_unit_info">반응형</div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <ins class="adsbygoogle" style="display:block;" data-ad-host="ca-host-pub-9691043933427338" data-ad-client="ca-pub-3481720379388267" data-ad-format="auto"></ins>
+                    <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script>
+               </div>
+            </div>
+								<!-- 전체 방문자 -->
+								<div class="count">
+									<h2>전체 방문자</h2>
+									<p class="total">289,592</p>
+									<p>Today : 296</p>
+									<p>Yesterday : 640</p>
+								</div>
+							
+								<!-- 카테고리 -->
+								<nav class="category">
+									<ul class="tt_category">
+	<li class="">
+		<a class="link_tit" href="/category">
+			분류 전체보기							<span class="c_cnt">(176)</span>
+			
+					</a>
+
+				<ul class="category_list">
+							<li class="">
+					<a class="link_item" href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+						개발 이야기													<span class="c_cnt">(59)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/Python%2C%20Machine%20Learning">
+									Python, Machine Learning
+																			<span class="c_cnt">(40)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%B4%88%EB%B3%B4%EC%9D%98%20%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EB%8F%84%EC%A0%84%20%EC%9D%BC%EC%A7%80">
+									파이썬 초보의 웹사이트 도전..
+																			<span class="c_cnt">(9)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90">
+									암호화폐
+																			<span class="c_cnt">(5)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B0%9C%EB%B0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/Flask">
+									Flask
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+						디자인 이야기													<span class="c_cnt">(16)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%20%EC%9D%B4%EC%95%BC%EA%B8%B0/Illustrate">
+									Illustrate
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%20%EC%9D%B4%EC%95%BC%EA%B8%B0/Logo%20Design">
+									Logo Design
+																			<span class="c_cnt">(8)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EB%94%94%EC%9E%90%EC%9D%B8%20%EC%9D%B4%EC%95%BC%EA%B8%B0/UI%20UX%20Design">
+									UI UX Design
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EA%B2%BD%EC%A0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+						경제 이야기													<span class="c_cnt">(18)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B2%BD%EC%A0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%A3%BC%EC%8B%9D">
+									주식
+																			<span class="c_cnt">(15)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%B2%BD%EC%A0%9C%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90%20%ED%88%AC%EC%9E%90">
+									암호화폐 투자
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%9D%BC%EC%83%81%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+						일상 이야기													<span class="c_cnt">(60)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%9D%BC%EC%83%81%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%9D%BC%EC%83%81">
+									일상
+																			<span class="c_cnt">(15)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%9D%BC%EC%83%81%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%83%9D%EC%83%9D%EC%A0%95%EB%B3%B4%ED%86%B5">
+									생생정보통
+																			<span class="c_cnt">(30)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%9D%BC%EC%83%81%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EA%B2%B0%ED%98%BC%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+									결혼 이야기
+																			<span class="c_cnt">(10)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%9D%BC%EC%83%81%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%ED%8C%A8%EC%85%98%20%ED%8A%B8%EB%9E%9C%EB%93%9C">
+									패션 트랜드
+																			<span class="c_cnt">(5)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EA%BF%80%ED%8C%81">
+						꿀팁													<span class="c_cnt">(9)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%BF%80%ED%8C%81/%EC%97%85%EB%AC%B4%20%EA%BF%80%ED%8C%81">
+									업무 꿀팁
+																			<span class="c_cnt">(0)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%BF%80%ED%8C%81/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EA%BF%80%ED%8C%81">
+									티스토리 꿀팁
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+													<li class="">
+								<a class="link_sub_item" href="/category/%EA%BF%80%ED%8C%81/%EA%B8%B0%ED%83%80%20%EA%BF%80%ED%8C%81">
+									기타 꿀팁
+																			<span class="c_cnt">(4)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%97%B0%EC%98%88%EA%B0%80%20%EC%9D%B4%EC%95%BC%EA%B8%B0">
+						연예가 이야기													<span class="c_cnt">(1)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EC%97%B0%EC%98%88%EA%B0%80%20%EC%9D%B4%EC%95%BC%EA%B8%B0/%EC%8A%A4%ED%83%80%20%EC%86%8C%EC%8B%9D">
+									스타 소식
+																			<span class="c_cnt">(1)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EB%AF%B8%EC%8B%9D%EA%B0%80%20%ED%83%80%EC%9D%B4%EA%B1%B0%EC%9D%98%20%EB%A7%9B%EC%A7%91%20%ED%83%90%ED%97%98">
+						미식가 타이거의 맛집 탐험													<span class="c_cnt">(9)</span>
+						
+											</a>
+
+										<ul class="sub_category_list">
+													<li class="">
+								<a class="link_sub_item" href="/category/%EB%AF%B8%EC%8B%9D%EA%B0%80%20%ED%83%80%EC%9D%B4%EA%B1%B0%EC%9D%98%20%EB%A7%9B%EC%A7%91%20%ED%83%90%ED%97%98/%EB%A7%9B%EC%A7%91%20%EB%A6%AC%EB%B7%B0">
+									맛집 리뷰
+																			<span class="c_cnt">(9)</span>
+									
+																	</a>
+							</li>
+											</ul>
+					
+				</li>
+							<li class="">
+					<a class="link_item" href="/category/%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85">
+						스타트업													<span class="c_cnt">(0)</span>
+						
+											</a>
+
+					
+				</li>
+					</ul>
+			</li>
+</ul>
+								</nav>
+							<div class='module module_plugin'><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 사이드바 상단 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3481720379388267"
+     data-ad-slot="6288471980"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+					</div>
+					<div class="sidebar-2">
+						<div class='module module_plugin'><form id="daumSearchBox" style="width:190px" method="GET" action="https://search.daum.net/search" target="_blank">
+		<input type="hidden" name="w" value="tot"/>
+		<div id="daumLogo"></div>
+		<input id="show_q" type="text" name="q" value="검색어" onfocus="this.value=''"  style="width:99px" >
+		<input id="show_btn" type="submit"  value="검색"/></form></div><div class='module module_plugin'><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 사이드바 중간 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3481720379388267"
+     data-ad-slot="6835266894"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+								<!-- 최근댓글 -->
+								<div class="recent-comment">
+									<h2>최근댓글</h2>
+									<ul>
+										
+											<li><a href="/48#comment13297550">굽 높이는 어느정도 되나요?</a></li>
+										
+
+											<li><a href="/152#comment13263804">파이썬으로 업비트 홈페이지 크롤링했습⋯</a></li>
+										
+
+											<li><a href="/68#comment13260796">아오 드디어 해결했습니다 정말 감사합⋯</a></li>
+										
+
+											<li><a href="/164#comment13255751">제 논지를 뒷받침하기 위해 당사자를 불⋯</a></li>
+										
+
+											<li><a href="/164#comment13255749">제 논지를 뒷받침하기 위해 당사자를 불⋯</a></li>
+										
+
+											<li><a href="/164#comment13255334">안녕하세요   (주)투어 콜럼버스  이광⋯</a></li>
+										
+
+											<li><a href="/164#comment13255031">안녕하세요 캡처 떠있는 업체인 크루즈⋯</a></li>
+										
+
+											<li><a href="/8#comment13239608">저는 11이 아닌 10을 사용중이긴 한데⋯</a></li>
+										
+
+											<li><a href="/130#comment13238889">-P 옵션을 설정하여 복사하시면 심볼링⋯</a></li>
+										
+
+											<li><a href="/154#comment13235413">응원 감사합니다..!! 숙성 시켜 꺼내보⋯</a></li>
+										
+									</ul>
+								</div>
+							
+						
+								<!-- Facebook/Twitter -->
+								<div class="social-list tab-ui">
+									
+									
+								</div>
+							
+								<!-- 소셜 채널 -->
+								<div class="social-channel">
+									<ul>
+										
+										
+										
+										
+									</ul>
+								</div>
+							<div class='module module_plugin'><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 사이드바 하단 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3481720379388267"
+     data-ad-slot="8492991162"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+								<!-- 최근글/인기글 -->
+								<div class="post-list tab-ui">
+									<div id="recent" class="tab-list">
+										<h2>최근글</h2>
+										<ul>
+											
+												<li>
+													<a href="/196">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoW0By%2FbtrKuI2sNwQ%2FfZhBvZOBAxuk1bLq0HusIK%2Fimg.png" alt="" />
+														
+														<span class="title">[파이썬] 구글드라이브에 CSV 올리면 gsheet으로⋯</span>
+														<span class="date">2022.08.25</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/195">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeSHf9%2FbtrKgsTk8pp%2Fkz0tXrsAZL0VK9gHkK7Fu1%2Fimg.png" alt="" />
+														
+														<span class="title">수린이를 위한 수경 비교 &amp; 추천 제품 (feat. 스완⋯</span>
+														<span class="date">2022.08.22</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/193">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FejMf9Q%2FbtrJqLqN90I%2FxeyF5alGbqDzYOjqoD6kXK%2Fimg.png" alt="" />
+														
+														<span class="title">[Flask] 파이썬 코드를 웹페이지에 띄워보자! 사용⋯</span>
+														<span class="date">2022.08.10</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/192">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbpGMJJ%2FbtrINNdzmAB%2Ftriknr2G0mE9TpWSgsj2gK%2Fimg.png" alt="" />
+														
+														<span class="title">220804_오늘의 발견_doda</span>
+														<span class="date">2022.08.04</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/191">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FOqCy3%2FbtrIOwoPGYn%2F0e2CtxZ31N2vvIa6VMPgTK%2Fimg.png" alt="" />
+														
+														<span class="title">220803_오늘의 영감_Previously Unavailable 웹페⋯</span>
+														<span class="date">2022.08.03</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/190">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FxrvJW%2FbtrIGyudmhe%2FVRNDxVu45dSSYrvTkBXWu1%2Fimg.png" alt="" />
+														
+														<span class="title">2022년8월2일_오늘의 생각의 흐름(Flask, 만화경,⋯</span>
+														<span class="date">2022.08.02</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/189">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpiV9U%2FbtrIcEflVxe%2FQgB3XX0I5B4saWXXvxLOj0%2Fimg.jpg" alt="" />
+														
+														<span class="title">동학개미 김개민 이모티콘_귀여웜</span>
+														<span class="date">2022.07.25</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/188">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbfmzb3%2FbtrHrOxzPEh%2FGJKuKRkGnKn7qB65Y0HiN0%2Fimg.png" alt="" />
+														
+														<span class="title">[예신일기] 맞춤 같은 혼주 한복 대여 추천! 청담⋯</span>
+														<span class="date">2022.07.17</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/187">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FsthRn%2FbtrHsDC3brF%2FD537iCwMtcBK8jTCoJGr11%2Fimg.webp" alt="" />
+														
+														<span class="title">캐릭터 일러스트 37가지 종류와 예시_영감이 필요⋯</span>
+														<span class="date">2022.07.17</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/186">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2CM35%2FbtrHkSGmghr%2FaolMyIB42hmTeIjUNnWpAK%2Fimg.png" alt="" />
+														
+														<span class="title">AI가 확률적 위험 예측에서 인간보다 더 정확한 이⋯</span>
+														<span class="date">2022.07.15</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/185">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb4X6pu%2FbtrHkTyw5nK%2FXtmgf4DaRNicMmN76k8ZVK%2Fimg.png" alt="" />
+														
+														<span class="title">tl;dr 뜻 (TL;DR 뜻)</span>
+														<span class="date">2022.07.15</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/184">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbbRfy5%2FbtrG4fVuwhd%2FJhfdOLq1obbFklXeC7o7Qk%2Fimg.png" alt="" />
+														
+														<span class="title">로봇 청소기, 샤오미 Lydsto S1 으로 최종결정한⋯</span>
+														<span class="date">2022.07.11</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/183">
+														
+														<span class="title">[미국주식] 미국 주식 정보 사이트 정리 (펌)</span>
+														<span class="date">2022.07.08</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/182">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FccC5ZZ%2FbtrEgpOe9LF%2FGeIYkSdYvYgupnHCZg2nH0%2Fimg.jpg" alt="" />
+														
+														<span class="title">공부한 자는 시스템과 표준을 얻고 경험한 자는 프⋯</span>
+														<span class="date">2022.06.08</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/181">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcdP1x2%2FbtrCUlgsR8y%2FySOxM4Ry5PL3yEsjxX2mF1%2Fimg.jpg" alt="" />
+														
+														<span class="title">[예랑일기] 싱가포르+몰디브 신혼여행! 싱가포르⋯</span>
+														<span class="date">2022.05.23</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/180">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpgBNT%2FbtrzKQJsjG3%2FkawdHtky9jktmkZL7RA0SK%2Fimg.jpg" alt="" />
+														
+														<span class="title">[정든물건과 이별] minelli 부츠 from Paris</span>
+														<span class="date">2022.04.19</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/179">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc1qQBY%2FbtrzL92L4CW%2Fu3tWcCOvYJ8qegLeKuAbfk%2Fimg.jpg" alt="" />
+														
+														<span class="title">정든 와인병을 정리하며..와인병은 왜 이쁜가?</span>
+														<span class="date">2022.04.18</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/178">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcUd0SW%2Fbtrzc9cKaZq%2F8vB6CLrs2iojcbOjwU0tQK%2Fimg.png" alt="" />
+														
+														<span class="title">[신혼집 인테리어] 거실을 어떻게 채울지 고민해 보자</span>
+														<span class="date">2022.04.12</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/177">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpJMt8%2Fbtry7t1NkAy%2FGTrmF8CfSlyIHNOPTlLmqk%2Fimg.jpg" alt="" />
+														
+														<span class="title">[인테리어] 신혼집, 서재 인테리어에 대한 조사를⋯</span>
+														<span class="date">2022.04.11</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/176">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoQdvY%2FbtryIpNiQuw%2FMwB0KFlylOb6pGTVV59Sk1%2Fimg.jpg" alt="" />
+														
+														<span class="title">요즘 가장 핫한 현빈 손예진 결혼식의 모든것 (드⋯</span>
+														<span class="date">2022.04.07</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/175">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcM7vVb%2FbtryJw5XzCs%2FXrALDpkcFQae03IcStUvo1%2Fimg.webp" alt="" />
+														
+														<span class="title">현빈, 손예진 결혼식 답례품 정확한 모델과 가격⋯</span>
+														<span class="date">2022.04.07</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/174">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb9eaq5%2FbtryBr6ckQu%2FGi4c8GKnJLVtEg9M8NG5Ak%2Fimg.jpg" alt="" />
+														
+														<span class="title">[예랑일기] 예비신랑의 스튜디오 촬영에 대한 고찰⋯</span>
+														<span class="date">2022.04.06</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/173">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeS4RsS%2Fbtryf0NQvoJ%2F2d6gXWeuaTL9LaFdxtyZ80%2Fimg.png" alt="" />
+														
+														<span class="title">평범한 튜브는 거부한다. 귀여운 물놀이 튜브, 예⋯</span>
+														<span class="date">2022.04.03</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/172">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLyauI%2FbtrycCfHgn8%2FP5TmrmLtU1UCUfWk7vFXA1%2Fimg.png" alt="" />
+														
+														<span class="title">이럴때는 냉찜질? 온찜질? 확실히 알고 기억하자!!⋯</span>
+														<span class="date">2022.04.02</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/171">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc5Fzht%2FbtrxyinmGw9%2FDajykebCBebBZp1eBUIEQK%2Fimg.png" alt="" />
+														
+														<span class="title">[패션팁] 남자 기본티 브랜드 비교 분석, 추천. 매⋯</span>
+														<span class="date">2022.03.28</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/170">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6ens9%2Fbtrv9KlPk01%2FsppCxsuIzKxgF9GVEXFqVk%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 해외 여행 자가격리 면제, 코로나 백신⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/169">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPsqu0%2FbtrwaE6qH9U%2FsIHXwwGRSunLkBAhyZpwdK%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 신혼여행 해외 갈수 있나?! 국내 자가⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/168">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdvzigU%2Fbtrv5ojTJOg%2FGsRQE1lP8bzBYL4EMHTu6k%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 가장 쉽게 결혼식 하객 전세 버스 예약⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/167">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdDe4Og%2FbtrvSeVIgwS%2FLpxnwQ8OXeb64y1wrGtKO1%2Fimg.png" alt="" />
+														
+														<span class="title">블루투스 없는 데스크탑에 에어팟 연결하는 방법_⋯</span>
+														<span class="date">2022.03.15</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/166">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyAVNU%2FbtrrJT70ekd%2FSPPLoD5S1BNPAmDQkMWKgK%2Fimg.jpg" alt="" />
+														
+														<span class="title">[대출용어] LTV, DTI, DSR..늘 까먹는 부동산 대출⋯</span>
+														<span class="date">2022.01.26</span>
+													</a>
+												</li>
+											
+										</ul>
+									</div>
+									<div id="popular" class="tab-list">
+										<h2>인기글</h2>
+										<ul>
+											
+												<li>
+													<a href="/147">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlHYNt%2FbtriTho0Cwg%2FokZakwApyCoFC16pUIJD0K%2Fimg.png" alt="" />
+														
+														<span class="title">[우분투] Xrdp 원격접속 시 검정화면 만 뜰 경우 (⋯</span>
+														<span class="date">2021.10.25</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/153">
+														
+														<span class="title">[파이썬] Print 문 줄바꾸는 방법_줄바꿈 표현 정리</span>
+														<span class="date">2021.12.03</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/144">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fq5QxT%2FbtrhUVntMcF%2FpjANisLhfFsAKei1XLo6P1%2Fimg.png" alt="" />
+														
+														<span class="title">[Python x Upbit][EP1] 내 파이썬과 업비트 API를⋯</span>
+														<span class="date">2021.10.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/154">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb5jsy7%2Fbtrm3PPZedg%2FZihwgKw6IcZMcIQsHPYg3K%2Fimg.png" alt="" />
+														
+														<span class="title">[코인 자동매매] 파이썬 코드 2줄로 이동평균선 골⋯</span>
+														<span class="date">2021.12.05</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/146">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbwYDZJ%2FbtriGk9oUUb%2FkxR7EdXT0jRZNChJ12ETW0%2Fimg.png" alt="" />
+														
+														<span class="title">[우분투] 크롬리모트 필요 없음. Xrdp로 윈도우에⋯</span>
+														<span class="date">2021.10.25</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/148">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FulKHK%2FbtriRLxK7bE%2FPAb1kPCOp3cUBVqxMUNboK%2Fimg.jpg" alt="" />
+														
+														<span class="title">[Python x Upbit][EP3] 코인 자동매매봇 자빛스 임⋯</span>
+														<span class="date">2021.10.25</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/149">
+														
+														<span class="title">[파이썬] pandas_datareader 오류 Unable to read⋯</span>
+														<span class="date">2021.10.27</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/164">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbif9TI%2FbtrqGeZVI64%2FqCleqk6PtGLbwXm60Zlwek%2Fimg.jpg" alt="" />
+														
+														<span class="title">[인크루즈 분석] 공짜로 크루즈 여행 간다고? 제발⋯</span>
+														<span class="date">2022.01.13</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/160">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FX7vIo%2FbtrqGb9qhIE%2FgpV2448G4AIuvVq5Mhrfx1%2Fimg.jpg" alt="" />
+														
+														<span class="title">월별, 계절별 테마주 요약</span>
+														<span class="date">2022.01.13</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/145">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtZF74%2FbtrhXFYvMvx%2FWrCKnrmJkhG9gUrCHCTpH0%2Fimg.png" alt="" />
+														
+														<span class="title">[Python x Upbit][EP2] 업비트 openAPI 가이드 내⋯</span>
+														<span class="date">2021.10.17</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/152">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FvHAZO%2FbtrmQ2XrHrc%2F7DrvZJPkc3BZ70LlyTehCk%2Fimg.png" alt="" />
+														
+														<span class="title">업비트 전체 코인 정보 정리 엑셀 공유_코인 소개,⋯</span>
+														<span class="date">2021.12.03</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/167">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdDe4Og%2FbtrvSeVIgwS%2FLpxnwQ8OXeb64y1wrGtKO1%2Fimg.png" alt="" />
+														
+														<span class="title">블루투스 없는 데스크탑에 에어팟 연결하는 방법_⋯</span>
+														<span class="date">2022.03.15</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/176">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoQdvY%2FbtryIpNiQuw%2FMwB0KFlylOb6pGTVV59Sk1%2Fimg.jpg" alt="" />
+														
+														<span class="title">요즘 가장 핫한 현빈 손예진 결혼식의 모든것 (드⋯</span>
+														<span class="date">2022.04.07</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/171">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fc5Fzht%2FbtrxyinmGw9%2FDajykebCBebBZp1eBUIEQK%2Fimg.png" alt="" />
+														
+														<span class="title">[패션팁] 남자 기본티 브랜드 비교 분석, 추천. 매⋯</span>
+														<span class="date">2022.03.28</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/155">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdxCrqV%2FbtrndodnHiV%2FVStwkBA2EmAJJlAOcCuaPk%2Fimg.png" alt="" />
+														
+														<span class="title">배당수익률 5% 이상 종목 흐름 분석 정리 엑셀 공⋯</span>
+														<span class="date">2021.12.06</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/168">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdvzigU%2Fbtrv5ojTJOg%2FGsRQE1lP8bzBYL4EMHTu6k%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 가장 쉽게 결혼식 하객 전세 버스 예약⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/158">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FTl3gC%2FbtrqihpYPNQ%2FIcbPCAcZ3MKffgGcY4flk0%2Fimg.jpg" alt="" />
+														
+														<span class="title">허브 크러스트 양갈비 해먹은 썰(레시피, 후기)</span>
+														<span class="date">2022.01.11</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/170">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6ens9%2Fbtrv9KlPk01%2FsppCxsuIzKxgF9GVEXFqVk%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 해외 여행 자가격리 면제, 코로나 백신⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/175">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcM7vVb%2FbtryJw5XzCs%2FXrALDpkcFQae03IcStUvo1%2Fimg.webp" alt="" />
+														
+														<span class="title">현빈, 손예진 결혼식 답례품 정확한 모델과 가격⋯</span>
+														<span class="date">2022.04.07</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/174">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb9eaq5%2FbtryBr6ckQu%2FGi4c8GKnJLVtEg9M8NG5Ak%2Fimg.jpg" alt="" />
+														
+														<span class="title">[예랑일기] 예비신랑의 스튜디오 촬영에 대한 고찰⋯</span>
+														<span class="date">2022.04.06</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/165">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FR5PnQ%2FbtrqFj1KVlU%2FfLLxdyLUsIOxnFuYNNIn7k%2Fimg.jpg" alt="" />
+														
+														<span class="title">[제주카페] 뉴질랜드 미트파이 - 코코메아</span>
+														<span class="date">2022.01.14</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/159">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcp9WpX%2FbtrqFpfJqAx%2FWyRp74P3r6EC15ClMDz3G1%2Fimg.jpg" alt="" />
+														
+														<span class="title">[정보] 1월엔 도시가스 관련주가 뜬다? 계절별, 월⋯</span>
+														<span class="date">2022.01.13</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/156">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FqEkRl%2FbtrqmOAiehR%2Fl8kYrCgGuy9Bd41OnZZFf1%2Fimg.jpg" alt="" />
+														
+														<span class="title">을지로 세운상가 대림국수 점심 후기</span>
+														<span class="date">2022.01.10</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/173">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeS4RsS%2Fbtryf0NQvoJ%2F2d6gXWeuaTL9LaFdxtyZ80%2Fimg.png" alt="" />
+														
+														<span class="title">평범한 튜브는 거부한다. 귀여운 물놀이 튜브, 예⋯</span>
+														<span class="date">2022.04.03</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/181">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcdP1x2%2FbtrCUlgsR8y%2FySOxM4Ry5PL3yEsjxX2mF1%2Fimg.jpg" alt="" />
+														
+														<span class="title">[예랑일기] 싱가포르+몰디브 신혼여행! 싱가포르⋯</span>
+														<span class="date">2022.05.23</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/177">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpJMt8%2Fbtry7t1NkAy%2FGTrmF8CfSlyIHNOPTlLmqk%2Fimg.jpg" alt="" />
+														
+														<span class="title">[인테리어] 신혼집, 서재 인테리어에 대한 조사를⋯</span>
+														<span class="date">2022.04.11</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/169">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FPsqu0%2FbtrwaE6qH9U%2FsIHXwwGRSunLkBAhyZpwdK%2Fimg.png" alt="" />
+														
+														<span class="title">[예랑일기] 신혼여행 해외 갈수 있나?! 국내 자가⋯</span>
+														<span class="date">2022.03.16</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/166">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyAVNU%2FbtrrJT70ekd%2FSPPLoD5S1BNPAmDQkMWKgK%2Fimg.jpg" alt="" />
+														
+														<span class="title">[대출용어] LTV, DTI, DSR..늘 까먹는 부동산 대출⋯</span>
+														<span class="date">2022.01.26</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/178">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcUd0SW%2Fbtrzc9cKaZq%2F8vB6CLrs2iojcbOjwU0tQK%2Fimg.png" alt="" />
+														
+														<span class="title">[신혼집 인테리어] 거실을 어떻게 채울지 고민해 보자</span>
+														<span class="date">2022.04.12</span>
+													</a>
+												</li>
+											
+
+												<li>
+													<a href="/172">
+														
+															<img src="//i1.daumcdn.net/thumb/C58x58/?fname=https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLyauI%2FbtrycCfHgn8%2FP5TmrmLtU1UCUfWk7vFXA1%2Fimg.png" alt="" />
+														
+														<span class="title">이럴때는 냉찜질? 온찜질? 확실히 알고 기억하자!!⋯</span>
+														<span class="date">2022.04.02</span>
+													</a>
+												</li>
+											
+										</ul>
+									</div>
+								</div>
+							
+								<!-- 태그 -->
+								<div class="tags">
+									<h2>태그</h2>
+									
+										<a href="/tag/%EC%B9%B4%ED%8E%98%20%EB%A1%9C%EA%B3%A0%20%EB%94%94%EC%9E%90%EC%9D%B8">카페 로고 디자인</a>
+									
+										<a href="/tag/%EC%97%AC%EB%A6%84%20%EC%A3%BC%EC%8B%9D%20%EC%A2%85%EB%AA%A9%20%EC%B6%94%EC%B2%9C">여름 주식 종목 추천</a>
+									
+										<a href="/tag/%EB%A0%88%EB%93%9C%EC%99%80%EC%9D%B8%EC%B6%94%EC%B2%9C">레드와인추천</a>
+									
+										<a href="/tag/1%EC%9B%94%20%ED%85%8C%EB%A7%88%EC%A3%BC">1월 테마주</a>
+									
+										<a href="/tag/%EB%A9%94%ED%83%80%EB%B2%84%EC%8A%A4%20%EA%B4%80%EB%A0%A8%EC%A3%BC%20%EC%9A%94%EC%95%BD">메타버스 관련주 요약</a>
+									
+										<a href="/tag/%EC%B9%B4%ED%8E%98%20%EB%A1%9C%EA%B3%A0">카페 로고</a>
+									
+										<a href="/tag/opencv%20%EC%84%A4%EC%B9%98%20%EC%98%A4%EB%A5%98">opencv 설치 오류</a>
+									
+										<a href="/tag/%EB%93%9C%EB%A1%9C%EC%9E%89">드로잉</a>
+									
+										<a href="/tag/%EB%A9%94%ED%83%80%EB%B2%84%EC%8A%A4%20%EA%B4%80%EB%A0%A8%EC%A3%BC">메타버스 관련주</a>
+									
+										<a href="/tag/%EC%8A%A4%ED%8E%98%EC%9D%B8%20%EC%99%80%EC%9D%B8">스페인 와인</a>
+									
+										<a href="/tag/%EC%97%90%EC%96%B4%ED%8C%9F%EB%A7%A5%EC%8A%A4%20%EC%B6%9C%EC%8B%9C%EC%9D%BC">에어팟맥스 출시일</a>
+									
+										<a href="/tag/%EB%94%94%EC%9E%90%EC%9D%B8">디자인</a>
+									
+										<a href="/tag/%EC%95%A0%ED%94%8C%20%ED%97%A4%EB%93%9C%ED%8F%B0">애플 헤드폰</a>
+									
+										<a href="/tag/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4">데이터사이언스</a>
+									
+										<a href="/tag/%EC%B2%AD%EB%8B%B4%EB%B2%84%ED%84%B0">청담버터</a>
+									
+										<a href="/tag/%EA%B2%A8%EC%9A%B8%20%EC%A3%BC%EC%8B%9D%20%EC%A2%85%EB%AA%A9%20%EC%B6%94%EC%B2%9C">겨울 주식 종목 추천</a>
+									
+										<a href="/tag/%ED%94%84%EB%A1%9C%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8A%B8">프로크리에이트</a>
+									
+										<a href="/tag/%EC%9B%94%EB%B3%84%20%ED%85%8C%EB%A7%88%EC%A3%BC">월별 테마주</a>
+									
+										<a href="/tag/%EB%B0%94%EC%9D%B4%EB%93%A0%20%ED%85%8C%EB%A7%88%EC%A3%BC">바이든 테마주</a>
+									
+										<a href="/tag/cudnn8.2.2%20%EC%84%A4%EC%B9%98">cudnn8.2.2 설치</a>
+									
+										<a href="/tag/%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%20%EC%9E%84%EC%8B%9C%EC%A0%80%EC%9E%A5%20%EA%B8%B0%EA%B0%84">티스토리 임시저장 기간</a>
+									
+										<a href="/tag/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%B4%88%EB%B3%B4">파이썬 초보</a>
+									
+										<a href="/tag/%EC%A3%BC%EC%8B%9D%20%EA%B3%84%EC%A0%88%20%EC%82%AC%EC%9D%B4%ED%81%B4">주식 계절 사이클</a>
+									
+										<a href="/tag/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20pdf%20%EB%B3%80%ED%99%98">파이썬 pdf 변환</a>
+									
+										<a href="/tag/%EC%99%80%EC%9D%B8%20%EB%A6%AC%EB%B7%B0">와인 리뷰</a>
+									
+										<a href="/tag/%EA%B0%80%EC%9D%84%20%EC%A3%BC%EC%8B%9D%20%EC%A2%85%EB%AA%A9%20%EC%B6%94%EC%B2%9C">가을 주식 종목 추천</a>
+									
+										<a href="/tag/%EC%9D%B4%EA%B7%BC">이근</a>
+									
+										<a href="/tag/2%EC%9B%94%20%ED%85%8C%EB%A7%88%EC%A3%BC">2월 테마주</a>
+									
+										<a href="/tag/%EB%82%98%ED%9B%88%EC%95%84%20%EC%8B%A0%EA%B3%A1">나훈아 신곡</a>
+									
+										<a href="/tag/ldconfig%20%EC%98%A4%EB%A5%98">ldconfig 오류</a>
+									
+										<a href="/tag/%EA%B7%B8%EB%A6%BC%20%EC%97%B0%EC%8A%B5">그림 연습</a>
+									
+										<a href="/tag/%EC%97%90%EC%96%B4%ED%8C%9F%EB%A7%A5%EC%8A%A4">에어팟맥스</a>
+									
+										<a href="/tag/%EB%B8%8C%EB%9E%9C%EB%94%A9">브랜딩</a>
+									
+										<a href="/tag/%ED%94%84%EB%A1%9C%ED%81%AC%EB%A6%AC%EC%97%90%EC%9D%B4%ED%8A%B8%20%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B8">프로크리에이트 일러스트</a>
+									
+										<a href="/tag/%EA%B3%84%EC%A0%88%20%EA%B4%80%EB%A0%A8%20%EC%A3%BC%EC%8B%9D">계절 관련 주식</a>
+									
+										<a href="/tag/%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%EC%97%85%EB%B9%84%ED%8A%B8%20%EC%9E%90%EB%8F%99%EB%A7%A4%EB%A7%A4">파이썬 업비트 자동매매</a>
+									
+										<a href="/tag/%ED%98%84%EB%B9%88%20%ED%86%B0%ED%8F%AC%EB%93%9C%20%ED%96%A5%EC%88%98">현빈 톰포드 향수</a>
+									
+										<a href="/tag/%EC%99%80%EC%9D%B8%20%EC%B6%94%EC%B2%9C">와인 추천</a>
+									
+										<a href="/tag/%EB%B2%84%ED%84%B0">버터</a>
+									
+										<a href="/tag/opencv4.5.3%20%EC%84%A4%EC%B9%98%20%EC%98%A4%EB%A5%98">opencv4.5.3 설치 오류</a>
+									
+										<a href="/tag/OpenCV">OpenCV</a>
+									
+										<a href="/tag/%EB%A1%9C%EA%B3%A0%20%EB%94%94%EC%9E%90%EC%9D%B8">로고 디자인</a>
+									
+										<a href="/tag/%EB%82%98%ED%9B%88%EC%95%84%20%EA%B3%B5%EC%97%B0">나훈아 공연</a>
+									
+										<a href="/tag/%EB%A1%9C%EA%B3%A0%20%EA%B7%B8%EB%A6%AC%EA%B8%B0">로고 그리기</a>
+									
+										<a href="/tag/%ED%98%84%EB%B9%88%20%EB%8B%B5%EB%A1%80%ED%92%88%20%EA%B0%80%EA%B2%A9">현빈 답례품 가격</a>
+									
+										<a href="/tag/%EA%B3%84%EC%A0%88%EB%B3%84%20%ED%85%8C%EB%A7%88%EC%A3%BC">계절별 테마주</a>
+									
+										<a href="/tag/%EC%9D%B4%EA%B7%BC%EB%8C%80%EC%9C%84%20%EB%82%98%EC%9D%B4%ED%94%84">이근대위 나이프</a>
+									
+										<a href="/tag/%EB%A9%94%ED%83%80%EB%B2%84%EC%8A%A4%EB%9E%80">메타버스란</a>
+									
+										<a href="/tag/%EB%A1%9C%EA%B3%A0%EB%94%94%EC%9E%90%EC%9D%B8">로고디자인</a>
+									
+										<a href="/tag/%EB%84%A4%EC%9D%B4%EB%B2%84%20%EC%A0%9C%ED%8E%98%ED%86%A0">네이버 제페토</a>
+									
+								</div>
+							
+					</div>
+				</aside>
+		</div>
+	</section>
+	<hr>
+	<footer id="footer">
+		<div class="inner">
+			<div class="order-menu">
+				
+				
+				
+				
+			</div>
+			<a href="#" class="page-top">TOP</a>
+			<p class="meta">TGWS Design</p>
+			<p class="copyright">© TGWS Corp.</p>
+		</div>
+	</footer>
+</div>
+
+<script src="https://tistory3.daumcdn.net/tistory/3731922/skin/images/script.js"></script>
+	
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+if(!wcs_add) var wcs_add = {};
+wcs_add["wa"] = "bb5bfbbdbc91e0";
+if(window.wcs) {
+wcs_do();
+}
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/styles/atom-one-dark-reasonable.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/delphi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/php.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/r.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/ruby.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/scala.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/shell.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/sql.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/swift.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/typescript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.3/languages/vbnet.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script><script src="//search1.daumcdn.net/search/statics/common/js/g/search_dragselection.min.js"></script>
+
+	<script>
+	    lightbox.option({
+			"fadeDuration": 200,
+		    "resizeDuration": 200,
+		    "wrapAround": false,
+			"albumLabel": "%1 / %2",
+			"fitImagesInViewport":true ,
+			"stopEvent": false
+	    })
+	</script><script src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/plugins/RainbowLink/rainbow.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" type="text/javascript"></script>
+            <script type="text/javascript" src="//t1.daumcdn.net/tiara/js/v1/tiara.min.js"></script>
+            <script type="text/javascript">window.tiara = {"svcDomain":"user.tistory.com","section":"\uae00\ubdf0","trackPage":"\uae00\ubdf0_\ubcf4\uae30","page":"\uae00\ubdf0","key":"3731922-89","customProps":{"userId":0,"blogId":"3731922","role":"guest","filterTarget":false,"trackPage":"\uae00\ubdf0_\ubcf4\uae30","entryId":"89"},"entry":{"entryId":"89","categoryName":"\ud30c\uc774\uc36c \ucd08\ubcf4\uc758 \uc6f9\uc0ac\uc774\ud2b8 \ub3c4\uc804 \uc77c\uc9c0","categoryId":"840532","author":"4261892","authorId":"4261892","image":"4261892","plink":"\/89","tags":["react \uc6f9\ud398\uc774\uc9c0 \ub9cc\ub4e4\uae30","react \ucd08\ubcf4","react \ud29c\ud1a0\ub9ac\uc5bc","react\ub85c \uc6f9\ud398\uc774\uc9c0","\ub9ac\uc561\ud2b8 \uc2e4\ud589","\uc6f9\uc0ac\uc774\ud2b8 \uc81c\uc791","\uc6f9\uc571 \ub9c8\uc2a4\ud130","\uc6f9\uc571 \ub9cc\ub4e4\uae30","\uc6f9\uc571 \uc5b4\ub5bb\uac8c \ub9cc\ub4dc\ub098","\uc6f9\ud398\uc774\uc9c0 \ub9cc\ub4e4\uae30"],"key":"3731922-89"},"sentryDsn":"https:\/\/a53520229cd744e798d42900d76b0e2a@aem-ingest.onkakao.net\/713","kakaoAppKey":"b8aef3eeb03fa312b81795386484f051","appUserId":null};</script>
+            <script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/tiara/tiara.min.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e" defer></script>
+                        <script type="text/javascript">
+                window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: 'tistory'}];
+            </script>
+            <script type="text/javascript" src="//t1.daumcdn.net/midas/rt/dk_bt/roosevelt_dk_bt.js" async></script><script type="text/javascript">if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script><iframe style="position:absolute;width:1px;height:1px;left:-100px;top:-100px" src="//lapina.tistory.com/api" id="editEntry"></iframe>            <div class="#menubar menu_toolbar ">
+                                <h2 class="screen_out">티스토리툴바</h2>
+                                <div class='btn_tool btn_tool_type1' id='menubar_wrapper'></div><div class="btn_tool">
+                    <button class="btn_menu_toolbar btn_subscription  #subscribe" data-blog-id="3731922" data-url="https://lapina.tistory.com" data-device="web_pc">
+                        <strong class="txt_tool_id">디자인하는 개발자, 개발하는 디자이너</strong>
+                        <em class="txt_state">구독하기</em>
+                        <span class="img_common_tistory ico_check_type1"></span>
+                    </button>
+                </div>
+                            </div><script type="text/javascript" src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e/blogs/script/menubar.min.js?_version_=tistory-4f2adb53a2bb6ed216b9b5784fd7f10d2c384d9e"></script>        <div class="layer_tooltip">
+            <div class="inner_layer_tooltip">
+                <p class="desc_g"></p>
+            </div>
+        </div>
+        </body>
+</html>
