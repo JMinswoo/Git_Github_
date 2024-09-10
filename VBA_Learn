@@ -1,0 +1,1124 @@
+'================================
+'공통함수들 정의
+'================================
+' 1. 미결 판매오더 기준 Base Template 생성
+' 2. 창고 재고 배분
+' 3. 미착 재고 배분
+' 4. 미결 판매오더 배분
+' 5. 결과 파일 Template 작성
+'================================
+'기본 환경설정
+Const PATH_CONFIG = "C:\BritySartorius\1. Config\"
+Const FPATH_CONFIG = PATH_CONFIG + "Config.xlsx"
+
+Const down = "C:\BritySartorius\3. Download\"
+Const temp = "C:\BritySartorius\2. Template\P1_오더가용성점검\"
+Const edit = "C:\BritySartorius\4. Edit\"
+
+' Const base_temp = temp + "data_process.xlsx"
+Const base_list = down + "P1_데이터처리.xlsx"
+Const result_temp = temp + "Result.xlsx"
+Const result_list = edit + "오더가용성점검_yyyymmdd.xlsx"
+'================================
+'================================
+' 엑셀 변수 환경설정
+' ("시트명", "기준열", )
+'================================
+' 결과 Sheet 정의
+Function BaseArr()
+    BaseArr = Array("Sheet1")
+End Function
+'================================
+' 엑셀 변수 환경설정
+' ("시트명", )
+'================================
+'================================
+' 첫번째 참조 Sheet
+' ("시트명", "판매오더번호", "판매오더라인번호", "품목번호", "잔여미결수량", "스페셜오더번호", "스페셜오더라인번호")
+Function RefArr1()
+    RefArr1 = Array("미결판매오더", "B", "C", "G", "J", "V", "W")
+End Function
+' 첫번째 대상 Sheet
+Function BaseArr1()
+    BaseArr1 = Array("데이터처리", "A", "B", "C", "D", "AA", "AB")
+End Function
+'================================
+'================================
+' 두번째 참조 Sheet
+' ("시트명", "품목번호", "창고재고")
+Function RefArr2()
+    RefArr2 = Array("창고재고", "A", "C")
+End Function
+' 두번째 대상 Sheet
+Function BaseArr2()
+    BaseArr2 = Array("데이터처리", "C", "E")
+End Function
+' 계산 대상
+' ("시트명", "품목번호", 수주량, 재고량, 재고사용량, 재고잔량, 부족수량)
+Function CalcArr2()
+    CalcArr2 = Array("데이터처리", "C", "D", "E", "F", "G", "Z")
+End Function
+'================================
+'================================
+' 세번째 참조 Sheet
+' ("시트명", "품목번호", "미착재고(미입고수량)")
+Function RefArr3()
+    RefArr3 = Array("미착재고", "A", "B")
+End Function
+' 세번째 대상 Sheet
+Function BaseArr3()
+    BaseArr3 = Array("데이터처리", "C", "H")
+End Function
+' 계산 대상
+' ("시트명", "품목번호", 수주량, 미착재고, 미착사용량, 미착잔량, 부족수량)
+Function CalcArr3()
+    CalcArr3 = Array("데이터처리", "C", "D", "H", "I", "J", "Z")
+End Function
+'================================
+'================================
+' 네번째 참조 Sheet
+' ("시트명", "구매오더번호", "구매라인번호", "품목번호", "미입고수량")
+Function RefArr4()
+    RefArr4 = Array("미결구매오더", "A", "B", "D", "H")
+End Function
+' 네번째 Temp Sheet
+' ("시트명", "구매오더번호", "구매라인번호", "품목번호", "미입고수량", "잔량")
+Function TempArr4()
+    TempArr4 = Array("temp", "A", "B", "C", "D", "E")
+End Function
+' 네번째 대상 Sheet
+' ("시트명", "품목번호", "구매오더번호", "구매라인번호", "오더수량(미입고수량)", "부족수량")
+Function BaseArr4_1()
+    BaseArr4_1 = Array("데이터처리", "C", "K", "L", "M", "Z")
+End Function
+Function BaseArr4_2()
+    BaseArr4_2 = Array("데이터처리", "C", "N", "O", "P", "Z")
+End Function
+Function BaseArr4_3()
+    BaseArr4_3 = Array("데이터처리", "C", "Q", "R", "S", "Z")
+End Function
+Function BaseArr4_4()
+    BaseArr4_4 = Array("데이터처리", "C", "T", "U", "V", "Z")
+End Function
+Function BaseArr4_5()
+    BaseArr4_5 = Array("데이터처리", "C", "W", "X", "Y", "Z")
+End Function
+Function BaseArr4()
+    BaseArr4 = Array(BaseArr4_1, BaseArr4_2, BaseArr4_3, BaseArr4_4, BaseArr4_5)
+End Function
+'================================
+'================================
+' 마지막 병합 Sheet
+' ("판매오더번호", "판매오더라인번호", "품목번호", "잔여미결수량", "스페셜오더번호", "스페셜오더라인번호")
+Function RefArr5()
+    RefArr5 = Array("F", "G", "H", "I", "AF", "AG")
+End Function
+' ("시트명 1", "시트명 2", 시트1:"판매오더번호", 시트2:"판매오더번호", "판매오더라인번호", "품목번호", "잔여미결수량", "스페셜오더번호", "스페셜오더라인번호")
+Function BaseArr5()
+    BaseArr5 = Array("데이터처리", "스페셜오더", "A", "B", "C", "G", "J", "V", "W")
+End Function
+'================================
+'================================
+' SPO 참조 Sheet
+' ("시트명", "스페셜오더번호", "스페셜오더라인번호", "품목번호", "미착재고량", "현창고 재고")
+Function RefArr6()
+    RefArr6 = Array("스페셜오더", "A", "B", "C", "D", "E")
+End Function
+' SPO 대상 Sheet
+Function BaseArr6()
+    BaseArr6 = Array("데이터처리", "AA", "AB", "C", "H", "E")
+End Function
+'================================
+Sub p1_CreateBase()
+    ' 미결판매오더 기준자료 복사
+    Call p1_CopyBase
+    ' 창고재고 품목별 재고량 수식 셋팅
+    Call p1_Warehouse_Stock
+    ' 미착재고 품목별 재고량 수식 셋팅
+    Call p1_Undelivered_Stock
+    ' 스페셜오더 재고 및 미착재고 할당 및 제외 작업
+    Call p1_Control_SPO
+End Sub
+
+Sub p1_CopyBase()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+    ' 참조 시트
+    Dim ws_ref As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(BaseArr1(0))
+    ' 기준 데이터 시트 < 미결판매오더
+    Set ws_ref = wb_base.Worksheets(RefArr1(0))
+
+
+    ' 배열의 길이
+    Dim arrLen As Long
+    arrLen = UBound(BaseArr1) - LBound(BaseArr1)
+    ' 열 길이
+    Dim lRow As Long
+
+    Dim i As Long
+    For i = 1 To arrLen
+        ws_ref.Activate
+        lRow = ws_ref.Cells(Rows.Count, RefArr1(i)).End(xlUp).Row
+        If lRow > 1 Then
+            ws_ref.Range(RefArr1(i) & "2:" & RefArr1(i) & lRow).Copy
+            ws_base.Activate
+            ws_base.Range(BaseArr1(i) & "2").PasteSpecial xlPasteValues
+        End If
+    Next i
+
+    ws_base.Activate
+    lRow = ws_ref.Cells(Rows.Count, BaseArr1(1)).End(xlUp).Row
+    ' =D2-F2-I2-M2-P2-S2-V2-Y2
+    ws_base.Range("Z2:Z" & lRow).FormulaR1C1 = "=RC[-22] - RC[-20] - RC[-17] - RC[-13] - RC[-10] - RC[-7] - RC[-4] - RC[-1]"
+
+    wb_base.Save
+    wb_base.Close
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Function
+
+Sub p1_Control_SPO()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+    ' 참조 시트
+    Dim ws_spo As Worksheet
+    Dim ws_inv As Worksheet
+    Dim ws_ped As Worksheet
+    
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(BaseArr6(0))
+    ' 기준 데이터 시트 < 스페셜오더
+    Set ws_spo = wb_base.Worksheets(RefArr6(0))
+    ' 창고재고 시트
+    Set ws_inv = wb_base.Worksheets("창고재고")
+    ' 미착재고 시트
+    Set ws_ped = wb_base.Worksheets("미착재고")
+    
+    ' 배열의 길이
+    Dim arrLen As Long
+    arrLen = UBound(BaseArr6) - LBound(BaseArr6)
+    ' 행 길이
+    Dim bCnt As Long
+    bCnt = ws_base.Cells(Rows.Count, 1).End(xlUp).Row
+    Dim rCnt As Long
+    rCnt = ws_spo.Cells(Rows.Count, 1).End(xlUp).Row
+    
+    ' 데이터 처리 시트 스페셜 PO - 미착재고/보유총재고 없을 시 0처리
+    Dim i As Long
+    For i = 2 To bCnt
+        ws_base.Activate
+        Dim sp_docB As String
+        sp_docB = ws_base.Range(BaseArr6(1) & i).Value
+        Dim sp_lineB As String
+        sp_lineB = ws_base.Range(BaseArr6(2) & i).Value
+        
+        If Not sp_docB = "" Then
+            ws_base.Range(BaseArr6(4) & i).Value = "0"
+            ws_base.Range(BaseArr6(5) & i).Value = "0"
+        End If
+    Next
+    
+    ' 스페셜PO - 미착재고/보유총재고 있는 건들 분배
+    Dim idx As Long
+    For idx = 2 To rCnt
+        'Dim i As Long
+        'For i = 2 To arrLen
+            ws_spo.Activate
+            Dim sp_doc As String
+            sp_doc = ws_spo.Range(RefArr6(1) & idx).Value
+            Dim sp_line As String
+            sp_line = ws_spo.Range(RefArr6(2) & idx).Value
+            Dim sp_item As String
+            sp_item = ws_spo.Range(RefArr6(3) & idx).Value
+            Dim sp_pending As String
+            sp_pending = ws_spo.Range(RefArr6(4) & idx).Value
+            Dim sp_inv As String
+            sp_inv = ws_spo.Range(RefArr6(5) & idx).Value
+            
+            ws_base.Activate
+            Dim rngF As Range
+            ' 스페셜오더 미착수량, 재고수량 입력
+            With ActiveSheet.Range("AA:AA")
+                Set rngF = .Find(what:=sp_doc, lookat:=xlWhole)
+               
+                If Not rngF Is Nothing Then
+                    Dim strAddr As String
+                    strAddr = rngF.Address
+                   
+                    Do
+                        Dim chkVal As String
+                        chkVal = rngF.Offset(0, 1).Value
+                        
+                        If CStr(chkVal) = sp_line Then
+                            ws_base.Range(BaseArr6(4) & rngF.Row).Value = sp_pending
+                            ws_base.Range(BaseArr6(5) & rngF.Row).Value = sp_inv
+                            
+                            'Exit Do
+                        End If
+                        
+                        Set rngF = .FindNext(rngF)
+                    Loop While Not rngF Is Nothing And rngF.Address <> strAddr
+                End If
+            End With
+            
+            ' 스페셜오더 창고재고 차감
+            ws_inv.Activate
+            Dim rngI As Range
+            With ActiveSheet.Range("A:A")
+                Set rngI = .Find(what:=sp_item, lookat:=xlWhole)
+                
+                If Not rngI Is Nothing Then
+                    Dim invQty As String
+                    invQty = rngI.Offset(0, 2).Value
+                    
+                    rngI.Offset(0, 2).Value = CStr(CInt(invQty) - CInt(sp_inv))
+                End If
+            End With
+            
+            ' 스페셜오더 미착재고 차감
+            ws_ped.Activate
+            Dim rngP As Range
+            With ActiveSheet.Range("A:A")
+                Set rngP = .Find(what:=sp_item, lookat:=xlWhole)
+                
+                If Not rngP Is Nothing Then
+                    Dim pedQty As String
+                    pedQty = rngP.Offset(0, 1).Value
+                    
+                    rngP.Offset(0, 1).Value = CStr(CInt(pedQty) - CInt(sp_pending))
+                End If
+            End With
+                        
+        'Next i
+    Next
+    
+    wb_base.Save
+    wb_base.Close
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Sub p1_Warehouse_Stock()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(BaseArr2(0))
+    ' 기준 데이터 시트 < 창고재고
+    Set ws_ref = wb_base.Worksheets(RefArr2(0))
+
+    ws_ref.Activate
+    ' 열 길이
+    Dim rlRow As Long
+    rlRow = ws_ref.Cells(Rows.Count, RefArr2(1)).End(xlUp).Row
+
+
+    ws_base.Activate
+    Dim blRow As Long
+    blRow = ws_base.Cells(Rows.Count, BaseArr2(1)).End(xlUp).Row
+    '=IFERROR(VLOOKUP(C2,창고재고!$A$2:$C$1217,3,0),0)
+    ' Columns("D").Column
+    ' 기준열과 대상열 간격
+    Dim diffCol As Long
+    diffCol = Columns(BaseArr2(1)).Column - Columns(BaseArr2(2)).Column
+    ' 기준열 < 품목코드
+    Dim baseCol As Long
+    baseCol = Columns(RefArr2(1)).Column
+    ' 대상열 < 수량
+    Dim targetCol As Long
+    targetCol = Columns(RefArr2(2)).Column
+
+    ws_base.Range(BaseArr2(2) & "2:" & BaseArr2(2) & blRow).FormulaR1C1 _
+     = "=IFERROR(VLOOKUP(RC[" & diffCol & "], '" & RefArr2(0) & "'!R2C" & baseCol & ":R" & rlRow & "C" & targetCol & ", " & targetCol & ", 0), 0)"
+
+    wb_base.Save
+    wb_base.Close
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Sub p1_Undelivered_Stock()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(BaseArr3(0))
+    ' 기준 데이터 시트 < 미착재고
+    Set ws_ref = wb_base.Worksheets(RefArr3(0))
+
+    ws_ref.Activate
+    ' 열 길이
+    Dim rlRow As Long
+    rlRow = ws_ref.Cells(Rows.Count, RefArr3(1)).End(xlUp).Row
+
+
+    ws_base.Activate
+    Dim blRow As Long
+    blRow = ws_base.Cells(Rows.Count, BaseArr3(1)).End(xlUp).Row
+    '=IFERROR(VLOOKUP(C2,창고재고!$A$2:$C$1217,3,0),0)
+    ' Columns("D").Column
+    ' 기준열과 대상열 간격
+    Dim diffCol As Long
+    diffCol = Columns(BaseArr3(1)).Column - Columns(BaseArr3(2)).Column
+    ' 기준열 < 품목코드
+    Dim baseCol As Long
+    baseCol = Columns(RefArr3(1)).Column
+    ' 대상열 < 수량
+    Dim targetCol As Long
+    targetCol = Columns(RefArr3(2)).Column
+
+    ws_base.Range(BaseArr3(2) & "2:" & BaseArr3(2) & blRow).FormulaR1C1 _
+     = "=IFERROR(VLOOKUP(RC[" & diffCol & "], '" & RefArr3(0) & "'!R2C" & baseCol & ":R" & rlRow & "C" & targetCol & ", " & targetCol & ", 0), 0)"
+
+    wb_base.Save
+    wb_base.Close
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Sub p1_Calc_Warehouse_Stock()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+    ' 스폐셜오더 시트
+    Dim ws_spo As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(CalcArr2(0))
+    Set ws_spo = wb_base.Worksheets("스페셜오더")
+
+    ' 열 길이
+    ws_base.Activate
+    Dim lRow As Long
+    lRow = ws_base.Cells(Rows.Count, CalcArr2(1)).End(xlUp).Row
+    
+    ws_spo.Activate
+    Dim sRow As Long
+    sRow = ws_spo.Cells(Rows.Count, "A").End(xlUp).Row
+    
+    '================================
+    ' 비교 저장용 품목코드
+    Dim BaseItem As String
+    BaseItem = ""
+    ' 비교 저장용 스페셜오더번호 - 스페셜PO
+    Dim BaseSPO As String
+    BaseSPO = ""
+    ' 비교 저장용 스페셜오더라인번호 - 스페셜PO
+    Dim BaseSPO_line As String
+    BaseSPO_line = ""
+    ' 품목코드
+    Dim ItemCode As String
+    ' 수주량
+    Dim Orders As Long
+    ' 창고재고
+    Dim WhsQty As Long
+    ' 사용량
+    Dim Using As Long
+    ' 잔량
+    Dim Remaining As Long
+    ' 잔량 - 스페셜PO
+    Dim reSPO As Long
+    ' 부족수량
+    Dim Shortage As Long
+    ' 스페셜오더번호
+    Dim SPO As String
+    ' 스페셜오더라인번호
+    Dim SPO_line As String
+    '================================
+    
+    '=========================================================================
+    ' (0:"시트명", 1:"품목번호", 2:수주량, 3:재고량, 4:재고사용량, 5:재고잔량, 6:부족수량)
+    '=========================================================================
+
+    Dim i As Long
+    For i = 2 To lRow
+        If i = 757 Then
+            Dim test As String
+            test = "test"
+        End If
+        ItemCode = ws_base.Range(CalcArr2(1) & i).Value
+        Shortage = ws_base.Range(CalcArr2(6) & i).Value
+        SPO = ws_base.Range("AA" & i).Value
+        SPO_line = ws_base.Range("AB" & i).Value
+        
+        ' 스페셜오더가 없을때만 계산
+        If SPO = "" Then
+            ' 품목이 변경되면
+            If Not BaseItem = ItemCode Then
+                BaseItem = ItemCode
+                ' 총 재고량을 재고 잔량에 담아 계산 시작
+                Remaining = ws_base.Range(CalcArr2(3) & i).Value
+            End If
+            ' 부족수량이 0이 아닐때만 분배작업 시작
+            If Not Shortage = 0 Then
+                ' 보유총재고가 0이 아닐때만 분배작업
+                If Not Remaining = 0 Then
+                    Orders = ws_base.Range(CalcArr2(2) & i).Value
+                    ' 잔량이 부족한 경우 - 수주량이 잔량보다 클 경우
+                    If Orders > Remaining Then
+                        ws_base.Range(CalcArr2(4) & i).Value = Remaining
+                        Remaining = 0
+                        ws_base.Range(CalcArr2(5) & i).Value = Remaining
+                    ' 잔량이 충분한 경우 - 잔량이 수주량보다 클 경우
+                    Else
+                        ws_base.Range(CalcArr2(4) & i).Value = Orders
+                        Remaining = Remaining - Orders
+                        ws_base.Range(CalcArr2(5) & i).Value = Remaining
+                    End If
+                End If
+            End If
+        Else
+            If sRow > 1 Then
+                
+                ws_spo.Activate
+                With ws_spo
+                    Dim rngT As Range
+                    Set rngT = .Range("A:A").Find(what:=SPO, lookat:=xlWhole)
+                    
+                    If Not rngT Is Nothing Then
+                        Dim strAddr As String
+                        strAddr = rngT.Address
+                        
+                        Do
+                            Dim line As String
+                            line = rngT.Offset(0, 1).Value
+                            
+                            If SPO_line = line Then
+                                ws_base.Activate
+                                ' 품목이 변경되면
+                                If Not (BaseSPO = SPO And BaseSPO_line = SPO_line) Then
+                                    BaseSPO = SPO
+                                    BaseSPO_line = SPO_line
+                                    ' 총 재고량을 재고 잔량에 담아 계산 시작
+                                    reSPO = ws_base.Range(CalcArr2(3) & i).Value
+                                End If
+                                If Not Shortage = 0 Then
+                                    If Not reSPO = 0 Then
+                                        Orders = ws_base.Range(CalcArr2(2) & i).Value
+                                        ' 잔량이 부족한 경우 - 수주량이 잔량보다 클 경우
+                                        If Orders > reSPO Then
+                                            ws_base.Range(CalcArr2(4) & i).Value = reSPO
+                                            reSPO = 0
+                                            ws_base.Range(CalcArr2(5) & i).Value = reSPO
+                                        ' 잔량이 충분한 경우 - 잔량이 수주량보다 클 경우
+                                        Else
+                                            ws_base.Range(CalcArr2(4) & i).Value = Orders
+                                            reSPO = reSPO - Orders
+                                            ws_base.Range(CalcArr2(5) & i).Value = reSPO
+                                        End If
+                                    End If
+                                End If
+                                Exit Do
+                            End If
+                            Set rngT = .Range("A:A").FindNext(rngT)
+                        Loop While Not rngT Is Nothing And rngT.Address <> strAddr
+                        
+                    End If
+                End With
+            End If
+        End If
+
+    Next
+
+    wb_base.Save
+    wb_base.Close
+
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Sub p1_Calc_Undeliverd_Stock()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+    ' 스폐셜오더 시트
+    Dim ws_spo As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(CalcArr3(0))
+    Set ws_spo = wb_base.Worksheets("스페셜오더")
+
+    ' 열 길이
+    ws_base.Activate
+    Dim lRow As Long
+    lRow = ws_base.Cells(Rows.Count, CalcArr3(1)).End(xlUp).Row
+    
+    ws_spo.Activate
+    Dim sRow As Long
+    sRow = ws_spo.Cells(Rows.Count, "A").End(xlUp).Row
+
+    '================================
+    ' 비교 저장용 품목코드
+    Dim BaseItem As String
+    BaseItem = ""
+    ' 비교 저장용 스페셜오더번호 - 스페셜PO
+    Dim BaseSPO As String
+    BaseSPO = ""
+    ' 비교 저장용 스페셜오더라인번호 - 스페셜PO
+    Dim BaseSPO_line As String
+    BaseSPO_line = ""
+    ' 품목코드
+    Dim ItemCode As String
+    ' 수주량
+    Dim Orders As Long
+    ' 창고재고
+    Dim WhsQty As Long
+    ' 사용량
+    Dim Using As Long
+    ' 잔량
+    Dim Remaining As Long
+    ' 잔량 - 스페셜PO
+    Dim reSPO As Long
+    ' 부족수량
+    Dim Shortage As Long
+    ' 스페셜오더번호
+    Dim SPO As String
+    ' 스페셜오더라인번호
+    Dim SPO_line As String
+    '================================
+    
+    '=========================================================================
+    ' (0:"시트명", 1:"품목번호", 2:수주량, 3:미착재고량, 4:미착재고사용량, 5:미착재고잔량, 6:부족수량)
+    '=========================================================================
+
+    Dim i As Long
+    For i = 2 To lRow
+        If i = 3221 Then
+            Dim test As String
+            test = "test"
+        End If
+        ItemCode = ws_base.Range(CalcArr3(1) & i).Value
+        Shortage = ws_base.Range(CalcArr3(6) & i).Value
+        SPO = ws_base.Range("AA" & i).Value
+        SPO_line = ws_base.Range("AB" & i).Value
+        ' 부족수량이 0이 아닐때만 분배작업 시작
+        If Not Shortage = 0 Then
+            ' 스페셜오더가 없을때만 계산
+            If SPO = "" Then
+                ' 품목이 변경되면
+                If Not BaseItem = ItemCode Then
+                    BaseItem = ItemCode
+                    ' 총 재고량을 재고 잔량에 담아 계산 시작
+                    Remaining = ws_base.Range(CalcArr3(3) & i).Value
+                End If
+                ' 보유총재고가 0이 아닐때만 분배작업
+                If Not Remaining = 0 Then
+                    ' Orders = ws_base.Range(CalcArr3(2) & i).Value
+                    ' 잔량이 부족한 경우 - 수주량이 잔량보다 클 경우
+                    If Shortage > Remaining Then
+                        ws_base.Range(CalcArr3(4) & i).Value = Remaining
+                        Remaining = 0
+                        ws_base.Range(CalcArr3(5) & i).Value = Remaining
+                    ' 잔량이 충분한 경우 - 잔량이 수주량보다 클 경우
+                    Else
+                        ws_base.Range(CalcArr3(4) & i).Value = Shortage
+                        Remaining = Remaining - Shortage
+                        ws_base.Range(CalcArr3(5) & i).Value = Remaining
+                    End If
+                End If
+            Else
+                If sRow > 1 Then
+                    ws_spo.Activate
+                    With ws_spo
+                        Dim rngT As Range
+                        Set rngT = .Range("A:A").Find(what:=SPO, lookat:=xlWhole)
+                        
+                        If Not rngT Is Nothing Then
+                            Dim strAddr As String
+                            strAddr = rngT.Address
+                        
+                            Do
+                                Dim line As String
+                                line = rngT.Offset(0, 1).Value
+                                
+                                If SPO_line = line Then
+                                    ws_base.Activate
+                                    ' 품목이 변경되면
+                                    If Not (BaseSPO = SPO And BaseSPO_line = SPO_line) Then
+                                        BaseSPO = SPO
+                                        BaseSPO_line = SPO_line
+                                        ' 총 재고량을 재고 잔량에 담아 계산 시작
+                                        reSPO = ws_base.Range(CalcArr3(3) & i).Value
+                                    End If
+                                    If Not reSPO = 0 Then
+                                        'Orders = ws_base.Range(CalcArr3(2) & i).Value
+                                        ' 잔량이 부족한 경우 - 수주량이 잔량보다 클 경우
+                                        If Shortage > reSPO Then
+                                            ws_base.Range(CalcArr3(4) & i).Value = reSPO
+                                            reSPO = 0
+                                            ws_base.Range(CalcArr3(5) & i).Value = reSPO
+                                        ' 잔량이 충분한 경우 - 잔량이 수주량보다 클 경우
+                                        Else
+                                            ws_base.Range(CalcArr3(4) & i).Value = Shortage
+                                            reSPO = reSPO - Shortage
+                                            ws_base.Range(CalcArr3(5) & i).Value = reSPO
+                                        End If
+                                    End If
+                                    Exit Do
+                                End If
+                                Set rngT = .Range("A:A").FindNext(rngT)
+                            Loop While Not rngT Is Nothing And rngT.Address <> strAddr
+                            
+                        End If
+                    End With
+                End If
+            End If
+        End If
+
+    Next
+
+    wb_base.Save
+    wb_base.Close
+
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Sub p1_Calc_Purchase_Order()
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base As Worksheet
+    ' 구매오더시트
+    Dim ws_opor As Worksheet
+    ' 임시 시트
+    Dim ws_temp As Worksheet
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base = wb_base.Worksheets(BaseArr4(0)(0))
+    ' 구매오더 시트
+    Set ws_opor = wb_base.Worksheets(RefArr4(0))
+    ' 임시 시트
+    Set ws_temp = wb_base.Worksheets(TempArr4(0))
+
+    ' 열 길이
+    Dim lRow As Long
+    lRow = ws_base.Cells(Rows.Count, BaseArr4(0)(1)).End(xlUp).Row
+    '================================
+    ' 비교 저장용 품목코드
+    Dim BaseItem As String
+    BaseItem = ""
+    ' 품목코드
+    Dim ItemCode As String
+    ' 구매오더번호
+    Dim Order As Long
+    ' 구매라인번호
+    Dim line As Long
+    ' 구매오더잔량
+    Dim Qty As Long
+    ' 잔량
+    Dim Remaining As Long
+    ' 부족수량
+    Dim Shortage As Long
+    ' 스페셜오더번호
+    Dim SPO As String
+    '================================
+    
+    '=========================================================================
+    ' (0:"시트명", 1:"품목번호", 2:판매오더번호, 3:판매라인번호, 4:판매오더수량, 5:부족수량)
+    '=========================================================================
+
+    Dim bool_opor As Boolean
+    Dim i As Long
+    For i = 2 To lRow
+        ItemCode = ws_base.Range(BaseArr4(0)(1) & i).Value
+        Shortage = ws_base.Range(BaseArr4(0)(5) & i).Value
+        SPO = ws_base.Range("AA" & i).Value
+        ' 스페셜오더가 없을때만 계산
+        If SPO = "" Then
+            ' 부족수량이 0이 아닐때만 분배작업 시작
+            If Not Shortage = 0 Then
+                ' 품목이 변경되면
+                If Not BaseItem = ItemCode Then
+                    BaseItem = ItemCode
+                    ' 총 재고량을 재고 잔량에 담아 계산 시작
+                    'Remaining = ws_base.Range(CalcArr3(3) & i).Value
+                    ' 해당 품목 필터 후 temp로 복사
+                    bool_opor = p1_Copy_PurchaseOrder(ws_opor, ws_temp, ItemCode)
+                    
+                    wb_base.Save
+                End If
+            
+                ' 해당품목 오더가 존재 시 분배작업
+                If bool_opor Then
+                    ' 미결구매오더 5개까지만
+                    Dim j As Long
+                    For j = 0 To 4
+                        ' 잔량이 부족한 경우 - 수주량이 잔량보다 클 경우
+                        ws_base.Activate
+                        Shortage = ws_base.Range(BaseArr4(j)(5) & i).Value
+                        If Not Shortage = 0 Then
+                            Dim m As Long
+                            m = p1_Get_OPOR(ws_temp)
+                            If m = 1 Or m = 0 Then
+                                ws_temp.Activate
+                                ws_temp.Cells.Clear
+                                GoTo NextI
+                            End If
+                            ws_temp.Activate
+                            Dim rng As Range
+                            Set rng = ws_temp.Range(TempArr4(5) & m)
+                            If IsEmpty(rng) Then
+                                Remaining = ws_temp.Range(TempArr4(4) & m).Value
+                            Else
+                                Remaining = CLng(rng.Value)
+                            End If
+                            Order = ws_temp.Range(TempArr4(1) & m).Value
+                            line = ws_temp.Range(TempArr4(2) & m).Value
+                            ws_base.Activate
+                            ws_base.Range(BaseArr4(j)(2) & i).Value = Order
+                            ws_base.Range(BaseArr4(j)(3) & i).Value = line
+                            wb_base.Save
+                            If Shortage > Remaining Then
+                                ws_base.Range(BaseArr4(j)(4) & i).Value = Remaining
+                                Remaining = 0
+                                ws_temp.Activate
+                                ws_temp.Range(TempArr4(5) & m).Value = CStr(Remaining)
+                            ' 잔량이 충분한 경우 - 잔량이 수주량보다 클 경우
+                            Else
+                                ws_base.Range(BaseArr4(j)(4) & i).Value = Shortage
+                                Remaining = Remaining - Shortage
+                                ws_temp.Activate
+                                ws_temp.Range(TempArr4(5) & m).Value = CStr(Remaining)
+                            End If
+                            wb_base.Save
+                        Else
+                            GoTo NextI
+                        End If
+                    Next
+    
+                End If
+            End If
+        End If
+NextI:
+    Next
+
+    wb_base.Save
+    wb_base.Close
+
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
+Function p1_Copy_PurchaseOrder(ws_opor As Worksheet, ws_temp As Worksheet, ItemCode As String) As Boolean
+    
+    ws_temp.Activate
+    ws_temp.Cells.Clear
+
+    ws_opor.Activate
+    Dim olRow As Long
+    olRow = ws_opor.Cells(Rows.Count, RefArr4(1)).End(xlUp).Row
+
+    ws_opor.Range("A1:O" & olRow).AutoFilter field:=4, Criteria1:=ItemCode
+
+    Dim tlRow As Long
+    tlRow = ws_opor.Cells(Rows.Count, RefArr4(1)).End(xlUp).Row
+
+    If tlRow > 1 Then
+        ' 배열의 길이
+        Dim arrLen As Long
+        arrLen = UBound(RefArr4) - LBound(RefArr4)
+        
+        Dim k As Long
+        For k = 1 To arrLen
+            ws_opor.Activate
+            lRow = ws_opor.Cells(Rows.Count, RefArr4(k)).End(xlUp).Row
+            If lRow > 1 Then
+                ws_opor.Range(RefArr4(k) & "1:" & RefArr4(k) & lRow).Copy
+                ws_temp.Activate
+                ws_temp.Range(TempArr4(k) & "1").PasteSpecial xlPasteValues
+            End If
+        Next k
+
+        ws_temp.Range(TempArr4(5) & "1").Value = "잔량"
+
+        p1_Copy_PurchaseOrder = True
+    Else
+        p1_Copy_PurchaseOrder = False
+    End If
+    ws_opor.Activate
+    ActiveSheet.UsedRange.AutoFilter
+
+End Function
+
+Function p1_Get_OPOR(ws_temp As Worksheet) As Long
+    
+    Dim flRow As Long
+    flRow = ws_temp.Cells(Rows.Count, TempArr4(1)).End(xlUp).Row
+    
+    
+    Dim l As Long
+    For l = 2 To flRow
+        Dim temp_Remain As String
+        temp_Remain = ws_temp.Range(TempArr4(5) & l).Value
+        If Not temp_Remain = "0" Then
+            p1_Get_OPOR = l
+            Exit For
+        Else
+            If l = flRow Then
+                p1_Get_OPOR = 1
+            End If
+            GoTo NextL
+        End If
+NextL:
+    Next
+
+End Function
+
+Sub p1_Merge_Upload(DB As String)
+
+    '================================
+    ' 속도향상
+    Application.ScreenUpdating = False
+    Application.DisplayStatusBar = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+    '수식 무력화
+    'Application.CalculateBeforeSave = False
+    Application.DisplayAlerts = False
+    '================================
+
+    ' 기준 엑셀
+    Dim wb_base As Workbook
+    ' 기준 시트
+    Dim ws_base1 As Worksheet
+    'Dim ws_base2 As Worksheet
+
+    ' 대상 엑셀
+    Dim wb_target As Workbook
+    ' 대상 시트
+    Dim ws_target As Worksheet
+
+    ''변수 선언
+    Dim today As String
+    today = Format(Date, "yyyymmdd")
+
+    'Edit 파일 정보
+    Dim path_edit As String
+    If DB = "SK" Then
+        path_edit = Replace(result_list, "yyyymmdd", "SK_" & today)
+    ElseIf DB = "SKB" Then
+        path_edit = Replace(result_list, "yyyymmdd", "SKB_" & today)
+    End If
+
+    FileCopy result_temp, path_edit
+
+    ' 데이터 처리 엑셀
+    Set wb_base = Workbooks.Open(base_list)
+    ' 데이터 처리 시트
+    Set ws_base1 = wb_base.Worksheets(BaseArr5(0))
+    'Set ws_base2 = wb_base.Worksheets(BaseArr5(1))
+
+    Set wb_target = Workbooks.Open(path_edit)
+    Set ws_target = wb_target.Worksheets(1)
+
+    ws_base1.Activate
+    Dim lCol As Long
+    lCol = ws_base1.Cells(1, Columns.Count).End(xlToLeft).Column
+    Dim lRow As Long
+    lRow = ws_base1.Cells(Rows.Count, BaseArr5(2)).End(xlUp).Row
+    
+    '업로드 할 내역 없으면 내용입력단계 띄어넘기
+    If lRow = 1 Then
+        GoTo SaveFiles
+    End If
+
+    ws_base1.Range(Cells(2, 1), Cells(lRow, lCol)).Copy
+
+    ws_target.Activate
+    'baseRow = ws_edit.Cells(Rows.Count, baseCol).End(xlUp).Row
+    ws_target.Range("F2").PasteSpecial xlPasteValues
+
+    '=============================================================
+    ' 스페셜오더 시트 사용처 변경으로 취합 제외
+    '=============================================================
+    'ws_base2.Activate
+    'lCol = ws_base2.Cells(1, Columns.Count).End(xlToLeft).Column
+    'lRow = ws_base2.Cells(Rows.Count, BaseArr5(2)).End(xlUp).Row
+
+    ' 필요 컬럼만 알맞는 열에 이동
+    ' 배열의 길이
+    'Dim arrLen As Long
+    'arrLen = UBound(RefArr5) - LBound(RefArr5)
+    'lRow2 = ws_base2.Cells(Rows.Count, BaseArr5(3)).End(xlUp).Row
+    
+    'If lRow2 > 1 Then
+    '    ws_target.Activate
+    '    Dim baseRow As Long
+    '    baseRow = ws_target.Cells(Rows.Count, 6).End(xlUp).Row
+   
+    '    Dim i As Long
+    '    For i = 0 To arrLen
+    '        ws_base2.Activate
+    '        ws_base2.Range(BaseArr5(i + 3) & "2:" & BaseArr5(i + 3) & lRow2).Copy
+    '        ws_target.Activate
+    '        ws_target.Range(RefArr5(i) & (baseRow + 1)).PasteSpecial xlPasteValues
+    '    Next i
+    'End If
+    '=============================================================
+
+    Dim tlRow As Long
+    tlRow = ws_target.Cells(Rows.Count, 6).End(xlUp).Row
+    
+    'ws_target.Activate
+
+    ws_target.Range("A2:A" & tlRow).Value = 1
+    ws_target.Range("B2").Value = 1
+    'tlRow = 2면 autofill 실행오류발생
+    If tlRow > 2 Then
+        ws_target.Range("B2").AutoFill Destination:=Range("B2:B" & tlRow), Type:=xlFillSeries
+    End If
+    ws_target.Range("C2:C" & tlRow).Value = 0
+    ws_target.Range("D2:D" & tlRow).Value = "BSG_ORDER"
+    ws_target.Range("E2:E" & tlRow).Value = "NULL"
+
+SaveFiles:
+
+    wb_base.Close
+    wb_target.Save
+    wb_target.Close
+
+    '================================
+    ' 속도향상★★★★★
+    Application.ScreenUpdating = True
+    Application.DisplayStatusBar = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+    Application.CalculateBeforeSave = True                   '수식 적용
+    '================================
+End Sub
+
